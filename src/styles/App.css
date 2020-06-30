@@ -112,7 +112,7 @@ and (orientation : portrait)  {
       background-size: contain;
       width: 25vw;
       height: 23vw;
-      margin: 0 auto;
+      margin: 5vh auto;
     }
   }
 
@@ -139,7 +139,7 @@ and (orientation : portrait)  {
       background-size: contain;
       width: 25vw;
       height: 23vw;
-      margin: 0 auto;
+      margin: 5vh auto;
     }
   
 

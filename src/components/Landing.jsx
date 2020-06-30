@@ -1,9 +1,20 @@
 import React from 'react';
-import logosmall from '../assets/logosmall.png'
-
+import { slide as Menu } from 'react-burger-menu'
+import '../styles/Landing.css';
 const Landing = () => {
+  
+
   return (
     <div className="LandingWrap pt-2 ">
+      <Menu>
+        <a  className="my-2 butt">Services</a>
+        <a  className="my-2 butt">Values</a>
+        <a  className="my-2 butt">Dashboard</a>
+        <a  className="my-2 butt">Sign Up</a>
+        <a  className="my-2 butt">Log In</a>
+        <a  className="my-2 butt">Log Out</a>
+      </Menu>
+
       <div className="LogoImage"></div>
       
       <div className="DogVetImage"></div>
