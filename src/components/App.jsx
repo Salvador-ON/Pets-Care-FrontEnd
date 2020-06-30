@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { LogIn, LogOut } from "../actions/index.js";
+import NavBar from './Navbar';
+import Landing from './Landing'
+import '../styles/App.css';
 
 const App = () => {
   const user = useSelector((state) => state.loggedInStatus);
@@ -47,7 +50,8 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route exact path={"/"} component={Home} />
+        <Route exact path={"/"} component={Landing} />
+          <Route exact path={"/home"} component={Home} />
           <Route exact path={"/dashboard"} component={Dashboard} />
         </Switch>
       </BrowserRouter>
