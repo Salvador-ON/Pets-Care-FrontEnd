@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import FormArticles from "./FormArticles";
 import FormServices from "./FormServices";
 import Articles from "./Articles";
-import Services from "./Services";
+import Services from "../containers/Services";
 
 const Dashboard = () => {
   let history = useHistory();

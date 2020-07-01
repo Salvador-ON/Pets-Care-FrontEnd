@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { LogIn, LogOut } from "../actions/index.js";
-import NavBar from './Navbar';
+import Services from "../containers/Services";
 import Landing from './Landing'
 import '../styles/App.css';
 
@@ -51,6 +51,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
         <Route exact path={"/"} component={Landing} />
+        <Route exact path={"/services"} component={Services} />
           <Route exact path={"/home"} component={Home} />
           <Route exact path={"/dashboard"} component={Dashboard} />
         </Switch>

@@ -1,0 +1,47 @@
+.ServicesContainer{
+  width: 83vw;
+  height: 100vh;
+}
+
+.ServiceTile{
+  margin-top: 6vh;
+  margin-bottom: 0px;
+  color: #101e42 !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.ServiceSubTile{
+  color: #292e3b !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.buttonPagination {
+  background-color: #101e42;
+  color: white;
+  border: 0;
+  padding: 15px 35px;
+}
+
+.btl {
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+.btr  {
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 25%;
+}
+
+.btr:focus {
+  outline:0;
+}
+
+.paginationButCont {
+  width: 83vw;
+  position: absolute;
+  top: 80vh
+}
