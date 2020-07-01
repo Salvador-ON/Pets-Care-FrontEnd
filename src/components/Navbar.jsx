@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/NavBar.css";
 import LogoWite from "../assets/logosmall-white.png";
 import {Link} from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const NavBar = ({option}) => {
   return (
@@ -23,6 +25,13 @@ const NavBar = ({option}) => {
         <a className="my-2 navLinksItem">Sign Up</a>
         <a className="my-2 navLinksItem">Log In</a>
         <a className="my-2 navLinksItem">Log Out</a>
+      </div>
+
+      <div className="socialCont d-flex justify-content-around">
+      <FontAwesomeIcon icon={faFacebook} className={"fa-2x"}/>
+      <FontAwesomeIcon icon={faTwitter} className={"fa-2x"}/>
+      <FontAwesomeIcon icon={faInstagram} className={"fa-2x"}/>
+      <FontAwesomeIcon icon={faYoutube} className={"fa-2x"}/>
       </div>
     </nav>
   );

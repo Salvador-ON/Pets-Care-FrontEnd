@@ -28,3 +28,10 @@
 .LinkContainer {
   margin-top: 10vh ;
 }
+
+.socialCont {
+  position: absolute;
+  margin: 5px 0;
+  bottom: 0;
+  width: 17vw;
+}

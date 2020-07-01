@@ -3,7 +3,8 @@ import axios from "axios";
 import NavBar from "../components/Navbar";
 import "../styles/Services.css";
 import Service from "../components/Service";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight , faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 const Services = () => {
 
   const getServices = () => {
@@ -31,10 +32,10 @@ const Services = () => {
           <Service/>
         </div>
         <div className="paginationButCont">
-          <button className="buttonPagination btr float-right">R</button>
-          <button className="buttonPagination btl float-left">L</button>
+          <button className="buttonPagination btr float-right"><FontAwesomeIcon icon={faChevronRight} className={"fa-2x"}/></button>
+          <button className="buttonPagination btl float-left"><FontAwesomeIcon icon={faChevronLeft} className={"fa-2x"}/></button>
         </div>
-
+        
         {/* <button onClick={getServices}className="btn btn-success">get services</button> */}
     </div>
     </div>
