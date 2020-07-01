@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import Dashboard from "./Dashboard";
+import Home from "../components/Home";
+import Dashboard from "../components/Dashboard";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { LogIn, LogOut } from "../actions/index.js";
-import Services from "../containers/Services";
-import Landing from './Landing'
+import Services from "./Services";
+import Landing from '../components/Landing'
+import Login from '../components/auth/Login'
+import Registration from '../components/auth/Registration'
+import AdminRegistration from '../components/auth/AdminRegistration'
 import '../styles/App.css';
 
 const App = () => {
@@ -54,6 +57,9 @@ const App = () => {
         <Route exact path={"/services"} component={Services} />
           <Route exact path={"/home"} component={Home} />
           <Route exact path={"/dashboard"} component={Dashboard} />
+          <Route exact path={"/login"} component={Login} />
+          <Route exact path={"/signup"} component={Registration} />
+          <Route exact path={"/adminsignup"} component={AdminRegistration} />
         </Switch>
       </BrowserRouter>
     </div>

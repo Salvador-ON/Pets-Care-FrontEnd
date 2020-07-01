@@ -1,0 +1,49 @@
+.SignupContainer{
+  width: 81vw;
+  height: 100vh;
+}
+
+.SignupTile{
+  margin-top: 1vh;
+  margin-bottom: 0px;
+  color: #101e42 !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.SignupSubTile {
+  color: #292e3b !important;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.btnSubmit {
+  color: white;
+  background-color: #101e42;
+  border: none;
+  outline:none;
+}
+
+.btnSubmit:hover {
+  color: white;
+  background-color: #16a30a;
+  border: none;
+}
+
+.btnSubmit:focus {
+  outline:0;
+}
+
+.dogImageContainer{
+  margin-top: 17vh;
+  margin-left: 25px;
+  width: 29vw;
+  height: 31vh;
+  background: url("../assets/dog_laptop.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 30px;
+}

@@ -1,3 +1,7 @@
 body {
   color: #101e42;
 }
+
+a {
+  color: inherit;
+} 

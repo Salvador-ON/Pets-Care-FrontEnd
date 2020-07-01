@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import NavBar from "../Navbar";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";

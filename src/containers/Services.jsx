@@ -26,7 +26,7 @@ const Services = () => {
         <h1 className="ServiceTile text-center">Our Services</h1>
         <h3 className="ServiceSubTile text-center">Check the differents services tha we offer.
         </h3>
-        <div class="ServicesDisplay mt-3 d-flex justify-content-center">
+        <div className="ServicesDisplay mt-3 d-flex justify-content-center">
           <Service/>
           <Service/>
           <Service/>

@@ -6,7 +6,7 @@ import "../../styles/Registration.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
-import dogLap from "../../assets/dog_laptop.jpg";
+
 
 const Registration = () => {
   let history = useHistory();
@@ -47,10 +47,11 @@ const Registration = () => {
       passwordConfirmation: "",
       name: "",
       phone: "",
+      token: "",
     });
   };
 
-  const { email, password, passwordConfirmation, name, phone } = userForm;
+  const { email, password, passwordConfirmation, name, phone, token } = userForm;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +61,8 @@ const Registration = () => {
       password.trim() === "" ||
       passwordConfirmation.trim() === "" ||
       name.trim() === "" ||
-      phone.trim() === ""
+      phone.trim() === "" ||
+      token.trim() === ""
     ) {
       SetError(true, "empty field");
       return;
@@ -74,6 +76,7 @@ const Registration = () => {
       SetError(false, "");
     }
 
+    
       axios
       .post(
         "http://localhost:3001/signup",
@@ -112,15 +115,25 @@ const Registration = () => {
     <div>
       <NavBar option={"signup"} />
       <div className="float-right SignupContainer">
-        <h1 className="SignupTile text-center">Sign Up</h1>
-        <h3 className="SignupSubTile text-center">
-          Create your account to request and manage your appointments.
-        </h3>
-
+        <h1 className="SignupTile text-center">Admin Registration</h1>
+        
         <div className="d-flex">
           <form onSubmit={HandleSubmit} className="w-50 mx-2">
+          <div className="form-group">
+              <label htmlFor="token">Admin or Employe Token</label>
+              <input
+                onChange={HandleForm}
+                type="text"
+                className="form-control"
+                id="token"
+                name="token"
+                value={token}
+                required
+              />
+            </div>
+
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="phone">Name</label>
               <input
                 onChange={HandleForm}
                 type="text"
