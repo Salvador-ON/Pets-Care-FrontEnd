@@ -82,8 +82,8 @@ const Registration = () => {
             email: email,
             password: password,
             password_confirmation: passwordConfirmation,
-            phone: "123456",
-            name: "employe user",
+            phone: "phone",
+            name: "name",
             token: ""
           },
         },

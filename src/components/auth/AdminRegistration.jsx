@@ -19,6 +19,7 @@ const Registration = () => {
     phone: "",
     password: "",
     passwordConfirmation: "",
+    token: "",
   });
 
   const [error, useError] = React.useState({
@@ -85,9 +86,9 @@ const Registration = () => {
             email: email,
             password: password,
             password_confirmation: passwordConfirmation,
-            phone: "123456",
-            name: "employe user",
-            token: ""
+            phone: phone,
+            name: name,
+            token: token
           },
         },
         { withCredentials: true }

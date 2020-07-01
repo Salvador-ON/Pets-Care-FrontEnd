@@ -32,7 +32,7 @@ const NavBar = ({option}) => {
       Sign Up
       </Link>
 
-      <Link className="navLinksItem rounded-left my-1" to='/signup'>
+      <Link className="navLinksItem rounded-left my-1" to='/login'>
         Log In
       </Link>
 
