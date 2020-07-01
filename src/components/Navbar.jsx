@@ -32,8 +32,8 @@ const NavBar = ({option}) => {
       Sign Up
       </Link>
 
-      <Link className="navLinksItem rounded-left my-1" to='/login'>
-        Log In
+      <Link className="navLinksItem rounded-left my-1" style={ option === "login" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/login'>
+      Log In
       </Link>
 
       <Link className="navLinksItem rounded-left my-1" to='/signup'>

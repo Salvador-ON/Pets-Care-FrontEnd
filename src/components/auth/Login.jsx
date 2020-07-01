@@ -1,24 +1,36 @@
 import React from "react";
 import axios from "axios";
 import NavBar from "../Navbar";
+import Error from "../Error";
+import "../../styles/Login.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
+import dogLap from "../../assets/dog_laptop.jpg";
 
-const Login = () => {
+const Registration = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
 
   const [userForm, useUserForm] = React.useState({
+    name: "",
     email: "",
+    phone: "",
     password: "",
+    passwordConfirmation: "",
   });
 
-  const [error, useError] = React.useState(false);
+  const [error, useError] = React.useState({
+    value: false,
+    data: "",
+  });
 
-  const SetError = (value) => {
-    useError(value);
+  const SetError = (value, data) => {
+    useError({
+      value: value,
+      data: data,
+    });
   };
 
   const HandleForm = (e) => {
@@ -32,10 +44,13 @@ const Login = () => {
     useUserForm({
       email: "",
       password: "",
+      passwordConfirmation: "",
+      name: "",
+      phone: "",
     });
   };
 
-  const { email, password } = userForm;
+  const { email, password, passwordConfirmation, name, phone } = userForm;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -43,27 +58,38 @@ const Login = () => {
     if (
       email.trim() === "" ||
       password.trim() === "" ||
-      password.trim() === ""
+      passwordConfirmation.trim() === "" ||
+      name.trim() === "" ||
+      phone.trim() === ""
     ) {
-      SetError(true);
+      SetError(true, "empty field");
       return;
+    } else if (password.length < 6) {
+      SetError(true, "password need to have 6 characters");
+      return;
+    } else if (password !== passwordConfirmation) {
+      SetError(true, "passwords don't match");
+      return;
+    } else {
+      SetError(false, "");
     }
 
-    SetError(false);
-
-    axios
+      axios
       .post(
         "http://localhost:3001/signin",
         {
           user: {
             email: email,
             password: password,
+
           },
         },
         { withCredentials: true }
       )
       .then((response) => {
-        if (response.data.logged_in) {
+        console.log(response);
+
+        if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
         } else {
@@ -75,47 +101,62 @@ const Login = () => {
         console.log(error);
       });
 
-    ResetForm();
+      ResetForm();
+    
   };
 
   return (
     <div>
-      <form onSubmit={HandleSubmit} className="w-50">
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input
-            onChange={HandleForm}
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-            value={email}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={HandleForm}
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            value={password}
-            required
-          />
-        </div>
-        {error ? (
-          <div className="alert alert-warning" role="alert">
-            A field is empty!
-          </div>
-        ) : null}
+      <NavBar option={"login"} />
+      <div className="float-right LoginContainer">
+        <h1 className="LoginTile text-center">Sign Up</h1>
+        <h3 className="LoginSubTile text-center">
+          Acces to your account to request and manage your appointments.
+        </h3>
 
-        <button className="btn btn-primary">Submit</button>
-      </form>
+        <div className="d-flex mt-5">
+          <form onSubmit={HandleSubmit} className="w-50 mx-2">
+            
+            <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Email address</label>
+              <input
+                onChange={HandleForm}
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                name="email"
+                value={email}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                onChange={HandleForm}
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                value={password}
+                required
+              />
+            </div>
+            
+            <div>
+              <button type="submit" className="btnSubmit rounded-pill py-1 px-3 mr-3">
+                Submit
+              </button>
+              {error.value ? <Error error={error.data} /> : null}
+            </div>
+            
+          </form>
+
+          <div className="dogImageLoginContainer"></div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default Registration;
