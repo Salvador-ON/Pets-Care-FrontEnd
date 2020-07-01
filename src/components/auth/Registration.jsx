@@ -96,15 +96,20 @@ const Registration = () => {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
         } else {
-          // shoow error
+          const data = response.data.error;
+          const keys = Object.keys(data)
+          const errorMessage = keys.map((key)=>{
+            return (key + " "+ data[key].toString())
+          })
+          SetError(true, errorMessage);
         }
-        console.log(response);
+        
       })
       .catch((error) => {
-        console.log(error);
+
       });
 
-      ResetForm();
+      
     
   };
 
@@ -168,6 +173,7 @@ const Registration = () => {
                 name="password"
                 value={password}
                 required
+                minlength="6"
               />
             </div>
             <div className="form-group">
@@ -182,6 +188,7 @@ const Registration = () => {
                 name="passwordConfirmation"
                 value={passwordConfirmation}
                 required
+                minlength="6"
               />
             </div>
 

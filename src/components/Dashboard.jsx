@@ -14,7 +14,7 @@ import AdminButtons from "./AdminButtons.jsx";
 import ClientButtons from "./ClientButtons.jsx";
 
 const Dashboard = () => {
-  let history = useHistory();
+  // let history = useHistory();
   const dispatch = useDispatch();
 
   const [selectedButton, useSelectedButton] = React.useState("");
@@ -66,7 +66,7 @@ const Dashboard = () => {
           <h3  className="DashboardSubTile text-center">You are not Logged In </h3>
         ) : null}
         {user.loggedInStatus === "LOGGED_IN" ? (
-          <h3 className="DashboardSubTile text-center">Welcome {user.user.name}</h3>
+          <h3 className="DashboardSubTile text-center">Welcome <span className="text-capitalize">{user.user.name}</span> </h3>
         ) : null}
 
       <AdminButtons buttonSelected={ButtonSelected}/>

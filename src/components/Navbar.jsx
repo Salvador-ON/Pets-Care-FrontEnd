@@ -1,12 +1,35 @@
 import React from "react";
 import "../styles/NavBar.css";
 import LogoWite from "../assets/logosmall-white.png";
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { LogOut } from "../actions/index.js";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 const NavBar = ({option}) => {
-
+  const user = useSelector((state) => state.loggedInStatus);
+  const dispatch = useDispatch();
+  let history = useHistory();
+  const handleLogOut = () => {
+    axios
+      .delete("http://localhost:3001/logout", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        if (response.data.logged_out) {
+          console.log(response.data.logged_out);
+          dispatch(LogOut());
+          console.log(user);
+          history.push("/services");
+        }
+        console.log("out", response);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
+  };
  
   return (
     <nav className="float-left NavContainer">
@@ -22,23 +45,21 @@ const NavBar = ({option}) => {
       Services
       </Link>
 
-      
-      <Link className="navLinksItem rounded-left my-1" style={ option === "dashboard" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/dashboard'>
+      {user.loggedInStatus === "LOGGED_IN" ? <Link className="navLinksItem rounded-left my-1" style={ option === "dashboard" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/dashboard'>
       Dashboard
-      </Link>
+      </Link> : null}
         
-
-      <Link className="navLinksItem rounded-left my-1" style={ option === "signup" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/signup'>
+      {user.loggedInStatus !== "LOGGED_IN" ? <Link className="navLinksItem rounded-left my-1" style={ option === "signup" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/signup'>
       Sign Up
-      </Link>
+      </Link> : null}
 
-      <Link className="navLinksItem rounded-left my-1" style={ option === "login" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/login'>
+      {user.loggedInStatus !== "LOGGED_IN" ? <Link className="navLinksItem rounded-left my-1" style={ option === "login" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/login'>
       Log In
-      </Link>
+      </Link> : null}
 
-      <Link className="navLinksItem rounded-left my-1" to='/signup'>
-        Log Out
-      </Link>
+      {user.loggedInStatus === "LOGGED_IN" ? <span className="navLinksItem rounded-left my-1" onClick={handleLogOut}>Log Out</span> : null}
+      
+      
 
       {/* style={ option === "signup" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} */}
 

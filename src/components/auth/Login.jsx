@@ -6,7 +6,7 @@ import "../../styles/Login.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
-import dogLap from "../../assets/dog_laptop.jpg";
+
 
 const Registration = () => {
   let history = useHistory();
@@ -14,11 +14,8 @@ const Registration = () => {
   const dispatch = useDispatch();
 
   const [userForm, useUserForm] = React.useState({
-    name: "",
     email: "",
-    phone: "",
     password: "",
-    passwordConfirmation: "",
   });
 
   const [error, useError] = React.useState({
@@ -50,28 +47,16 @@ const Registration = () => {
     });
   };
 
-  const { email, password, passwordConfirmation, name, phone } = userForm;
+  const { email, password} = userForm;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
 
     if (
       email.trim() === "" ||
-      password.trim() === "" ||
-      passwordConfirmation.trim() === "" ||
-      name.trim() === "" ||
-      phone.trim() === ""
-    ) {
+      password.trim() === "" ) {
       SetError(true, "empty field");
       return;
-    } else if (password.length < 6) {
-      SetError(true, "password need to have 6 characters");
-      return;
-    } else if (password !== passwordConfirmation) {
-      SetError(true, "passwords don't match");
-      return;
-    } else {
-      SetError(false, "");
     }
 
       axios
@@ -81,37 +66,29 @@ const Registration = () => {
           user: {
             email: email,
             password: password,
-
           },
         },
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
-
-        if (response.data.status === "created") {
+        if (response.data.logged_in === true) {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
         } else {
-          // shoow error
+          SetError(true, response.data.error);
         }
-        console.log(response);
       })
       .catch((error) => {
-        console.log(error);
-      });
-
-      ResetForm();
-    
+      });  
   };
 
   return (
     <div>
       <NavBar option={"login"} />
       <div className="float-right LoginContainer">
-        <h1 className="LoginTile text-center">Sign Up</h1>
+        <h1 className="LoginTile text-center">Sign In</h1>
         <h3 className="LoginSubTile text-center">
-          Acces to your account to request and manage your appointments.
+          Access your account to request and manage your appointments.
         </h3>
 
         <div className="d-flex mt-5">
@@ -140,6 +117,7 @@ const Registration = () => {
                 name="password"
                 value={password}
                 required
+                minlength="6"
               />
             </div>
             

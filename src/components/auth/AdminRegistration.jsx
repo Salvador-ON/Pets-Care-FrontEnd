@@ -99,17 +99,21 @@ const Registration = () => {
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
-        } else {
-          // shoow error
+        } else if (response.data.hasOwnProperty('token')){
+          SetError(true, "invalid token");
+        }
+        else {
+          const data = response.data.error;
+          const keys = Object.keys(data)
+          const errorMessage = keys.map((key)=>{
+            return (key + " "+ data[key].toString())
+          })
+          SetError(true, errorMessage);
         }
         console.log(response);
       })
       .catch((error) => {
-        console.log(error);
       });
-
-      ResetForm();
-    
   };
 
   return (
@@ -124,7 +128,7 @@ const Registration = () => {
               <label htmlFor="token">Admin or Employe Token</label>
               <input
                 onChange={HandleForm}
-                type="text"
+                type="password"
                 className="form-control"
                 id="token"
                 name="token"

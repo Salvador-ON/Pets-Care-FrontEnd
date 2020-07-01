@@ -37,10 +37,9 @@
 }
 
 .dogImageLoginContainer{
-  margin-top: 1vh;
   margin-left: 25px;
   width: 29vw;
-  height: 31vh;
+  height: 34vh;
   background: url("../assets/dog_laptop.jpg");
   background-repeat: no-repeat;
   background-position: center;
