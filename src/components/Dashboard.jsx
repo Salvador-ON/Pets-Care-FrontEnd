@@ -9,11 +9,15 @@ import Articles from "./Articles";
 import Services from "../containers/Services";
 import NavBar from "./Navbar.jsx";
 import "../styles/Dashboard.css";
+import EmployeButtons from "./EmployeButtons.jsx";
+import AdminButtons from "./AdminButtons.jsx";
+import ClientButtons from "./ClientButtons.jsx";
 
 const Dashboard = () => {
   let history = useHistory();
   const dispatch = useDispatch();
 
+  const [selectedButton, useSelectedButton] = React.useState("");
 
   const handleDelete = () => {
     axios
@@ -46,6 +50,10 @@ const Dashboard = () => {
         console.log("err", error);
       });
   };
+  
+  const ButtonSelected = (value) => {
+    useSelectedButton(value)
+  }
 
   const user = useSelector((state) => state.loggedInStatus);
   return (
@@ -61,6 +69,10 @@ const Dashboard = () => {
           <h3 className="DashboardSubTile text-center">Welcome {user.user.name}</h3>
         ) : null}
 
+      <AdminButtons buttonSelected={ButtonSelected}/>
+      {selectedButton === "ads" ? <FormServices/> : null}
+      {/* <EmployeButtons/>
+      <ClientButtons/> */}
        {/* <h1>Dashboard</h1>
         <FormArticles userID={user.user.id} />
         <Articles /> */}
