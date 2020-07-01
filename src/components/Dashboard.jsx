@@ -7,6 +7,8 @@ import FormArticles from "./FormArticles";
 import FormServices from "./FormServices";
 import Articles from "./Articles";
 import Services from "../containers/Services";
+import NavBar from "./Navbar.jsx";
+import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   let history = useHistory();
@@ -48,23 +50,21 @@ const Dashboard = () => {
   const user = useSelector((state) => state.loggedInStatus);
   return (
     <div>
-      <div>
-        {user.loggedInStatus === "NOT_LOGGED_IN" ? (
-          <h1>You are not Logged In </h1>
+       <NavBar option={"dashboard"}/>
+
+      <div className="float-right DashboardContainer">  
+      <h1 className="DashboardTile text-center">Dashboard</h1>
+      {user.loggedInStatus === "NOT_LOGGED_IN" ? (
+          <h3  className="DashboardSubTile text-center">You are not Logged In </h3>
         ) : null}
         {user.loggedInStatus === "LOGGED_IN" ? (
-          <h1>Welcome {user.user.name}</h1>
+          <h3 className="DashboardSubTile text-center">Welcome {user.user.name}</h3>
         ) : null}
 
-        <h1>Dashboard</h1>
+       {/* <h1>Dashboard</h1>
         <FormArticles userID={user.user.id} />
-        <Articles />
-          <hr/>
-        <FormServices/>
-        <Services />
-        <button className="btn btn-danger" onClick={() => handleLogOut()}>Log out</button>
-        <button className="btn btn-danger" onClick={() => handleDelete()}>Delete appointment</button>
-      </div>
+        <Articles /> */}
+      </div> 
     </div>
   );
 };

@@ -23,8 +23,8 @@ const NavBar = ({option}) => {
       </Link>
 
       
-      <Link className="navLinksItem rounded-left my-1" to='/services'>
-        Dashboard
+      <Link className="navLinksItem rounded-left my-1" style={ option === "dashboard" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} to='/dashboard'>
+      Dashboard
       </Link>
         
 
