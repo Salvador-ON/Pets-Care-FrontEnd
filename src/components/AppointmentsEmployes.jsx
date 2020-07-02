@@ -4,13 +4,27 @@ import axios from "axios";
 const AppointmentsEmployes = () => {
   const [serviceList, useServiceList] = React.useState([]);
 
+  const dateToday = () => {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+
+    return yyyy + '-' + mm + '-' + dd;
+  }
+
+  const [dateSearch, useDateSearch] = React.useState(dateToday());
+
+  
   const SetServiceList = (data) => {
     useServiceList(data);
   };
 
-  const getServices = () => {
+  
+
+  const getAppointments = () => {
     axios
-      .get("http://localhost:3001/dashboard?date=2020-06-28", {
+      .get(("http://localhost:3001/dashboard?date="+dateSearch), {
         withCredentials: true,
       })
       .then((response) => {
@@ -21,26 +35,28 @@ const AppointmentsEmployes = () => {
       });
   };
 
-  const deleteServices = (value) => {
-    axios
-      .delete("http://localhost:3001/services/"+`${value}`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        getServices();
-      })
-      .catch((error) => {
-      });
-  };
+  const SetDate = (e) => {
+    useDateSearch(e.target.value)
+    
+  }
+
+  
 
   React.useEffect(() => {
-    getServices();
-  }, []);
+    getAppointments();
+    
+  }, [dateSearch]);
+
+  
 
   
   return (
     
-    <div className="ServiceList mt-2">
+    <div className="ServiceList mt-4">
+      <div className="form-group">
+        <label htmlFor="date">Appointments Date: </label>
+      <input onChange={SetDate} type="date" className="form-control" id="date" value={dateSearch}/>
+      </div>
       {serviceList.map((service, index) => (
         <div key={index}className="serviceTable">
           <h4>{service.service}</h4> 

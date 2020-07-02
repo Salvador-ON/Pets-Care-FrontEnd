@@ -9,11 +9,10 @@ import Articles from "./Articles";
 import Services from "../containers/Services";
 import NavBar from "./Navbar.jsx";
 import "../styles/Dashboard.css";
-import EmployeButtons from "./EmployeButtons.jsx";
 import AdminButtons from "./AdminButtons.jsx";
-import ClientButtons from "./ClientButtons.jsx";
 import ServicesList from "./ServicesList.jsx";
 import AppointmentsEmployes from "./AppointmentsEmployes.jsx";
+import UserAppointments from "./UserAppointments.jsx";
 
 const Dashboard = () => {
   // let history = useHistory();
@@ -71,11 +70,12 @@ const Dashboard = () => {
           <h3 className="DashboardSubTile text-center">Welcome <span className="text-capitalize">{user.user.name}</span> </h3>
         ) : null}
 
-      <AdminButtons ButtonSelected={ButtonSelected}/>
+      { user.user.role === "admin" || user.user.role === "employe" ? <AdminButtons ButtonSelected={ButtonSelected}/> : null}
+      
       {selectedButton === "ads" ? <FormServices ButtonSelected={ButtonSelected}/> : null}
       {selectedButton === "ser" ? <ServicesList/> : null}
       {selectedButton === "aps" ? <AppointmentsEmployes/> : null}
-      
+      {selectedButton === "map" || user.user.role === "user"  ? <UserAppointments/>: null}
       {/* <EmployeButtons/>
       <ClientButtons/> */}
        {/* <h1>Dashboard</h1>
