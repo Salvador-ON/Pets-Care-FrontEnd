@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import NavBar from "../components/Navbar";
 import "../styles/Services.css";
+import { useSelector, useDispatch } from "react-redux";
 import Service from "../components/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight , faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 const Services = () => {
-
+  const user = useSelector((state) => state.loggedInStatus);
   const [serviceList, useServiceList] = React.useState([]);
   const [pagination, usePagination] = React.useState(0);
   const [pages, usePages] = React.useState(0);
@@ -27,6 +28,10 @@ const Services = () => {
   React.useEffect(() => {
     getServices();
   }, []);
+
+  const hey =()=>{
+    alert("he")
+  }
 
   const chunkArray = (myArray, chunk_size) => {
     let index = 0;
@@ -56,9 +61,6 @@ const Services = () => {
       });
   };
 
-  
-
-  // const art = getArticles();
   return (
     <div>
       <NavBar option={"services"}/>
@@ -68,7 +70,8 @@ const Services = () => {
         </h3>
         <div className="ServicesDisplay mt-3 d-flex justify-content-center">
           { serviceList.length > 0 ? ( serviceList[pagination].map((service) => (
-        <Service key={service.id} className={service.id} service={service}/>
+            <div className="serviceContainer" onClick={() => {hey()}} key={service.id}><Service  className={service.id} service={service} /></div>
+        
         ))) : null}
        
           
@@ -79,7 +82,10 @@ const Services = () => {
           { pagination > 0 ? <button onClick={()=>{SetPagination(-1)}} className="buttonPagination btl float-left"><FontAwesomeIcon icon={faChevronLeft} className={"fa-2x"}/></button> : null}
           
         </div>
-        {/* <button onClick={getServices}className="btn btn-success">get services</button> */}
+        
+        {user.loggedInStatus !== "LOGGED_IN" ? <h6 className="text-center mt-1">Log In or Sign Up to request an appointment</h6> : null}
+        
+        
     </div>
     </div>
     

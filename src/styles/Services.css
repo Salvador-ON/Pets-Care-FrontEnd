@@ -44,5 +44,15 @@
   position: absolute;
   width: 83vw;
   right: 0;
-  bottom: 16vh;
+  bottom: 12vh;
+}
+
+.serviceContainer {
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.serviceContainer:hover {
+  transform: scale(1.08); 
+  z-index: 0;
 }
