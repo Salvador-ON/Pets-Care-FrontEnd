@@ -15,7 +15,7 @@ const Articles = () => {
       .catch((error) => {
         console.log(error);
       });}
-  // const art = getArticles();
+  // const art = getArticles(); availables?service_id=1&date=2020-06-28
   return (
     <div>
       <h3>articles</h3>

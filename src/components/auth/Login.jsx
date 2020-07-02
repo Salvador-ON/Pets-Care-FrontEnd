@@ -117,7 +117,7 @@ const Registration = () => {
                 name="password"
                 value={password}
                 required
-                minlength="6"
+                minLength="6"
               />
             </div>
             

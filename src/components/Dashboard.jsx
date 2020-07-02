@@ -12,6 +12,8 @@ import "../styles/Dashboard.css";
 import EmployeButtons from "./EmployeButtons.jsx";
 import AdminButtons from "./AdminButtons.jsx";
 import ClientButtons from "./ClientButtons.jsx";
+import ServicesList from "./ServicesList.jsx";
+import AppointmentsEmployes from "./AppointmentsEmployes.jsx";
 
 const Dashboard = () => {
   // let history = useHistory();
@@ -69,8 +71,11 @@ const Dashboard = () => {
           <h3 className="DashboardSubTile text-center">Welcome <span className="text-capitalize">{user.user.name}</span> </h3>
         ) : null}
 
-      <AdminButtons buttonSelected={ButtonSelected}/>
-      {selectedButton === "ads" ? <FormServices/> : null}
+      <AdminButtons ButtonSelected={ButtonSelected}/>
+      {selectedButton === "ads" ? <FormServices ButtonSelected={ButtonSelected}/> : null}
+      {selectedButton === "ser" ? <ServicesList/> : null}
+      {selectedButton === "aps" ? <AppointmentsEmployes/> : null}
+      
       {/* <EmployeButtons/>
       <ClientButtons/> */}
        {/* <h1>Dashboard</h1>

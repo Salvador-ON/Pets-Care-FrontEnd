@@ -5,7 +5,7 @@ import Error from "./Error"
 // import { LogIn } from '../../actions/index.js'
 // import { useHistory } from "react-router-dom";
 
-const FormServices = () => {
+const FormServices = ({ButtonSelected}) => {
   // let history = useHistory();
 
   // const dispatch = useDispatch();
@@ -126,6 +126,7 @@ const FormServices = () => {
       )
       .then((response) => {
         if (response.data.status === "created") {
+          ButtonSelected("ser")
           // dispatch(LogIn(response.data.user))
           // history.push("/dashboard");
         } else {

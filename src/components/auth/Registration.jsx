@@ -173,7 +173,7 @@ const Registration = () => {
                 name="password"
                 value={password}
                 required
-                minlength="6"
+                minLength="6"
               />
             </div>
             <div className="form-group">
@@ -188,7 +188,7 @@ const Registration = () => {
                 name="passwordConfirmation"
                 value={passwordConfirmation}
                 required
-                minlength="6"
+                minLength="6"
               />
             </div>
 
