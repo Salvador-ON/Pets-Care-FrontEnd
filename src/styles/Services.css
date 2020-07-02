@@ -1,10 +1,10 @@
 .ServicesContainer {
-  width: 83vw;
+  width: 81vw;
   height: 100vh;
 }
 
 .ServiceTile {
-  margin-top: 6vh;
+  margin-top: 2vh;
   margin-bottom: 0;
   color: #101e42 !important;
   font-family: 'Roboto', sans-serif;
@@ -41,5 +41,8 @@
 }
 
 .paginationButCont {
-  margin-top: 5vh;
+  position: absolute;
+  width: 83vw;
+  right: 0;
+  bottom: 16vh;
 }
