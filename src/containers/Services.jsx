@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import NavBar from "../components/Navbar";
 import "../styles/Services.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Service from "../components/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight , faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,22 @@ const Services = () => {
   const [pagination, usePagination] = React.useState(0);
   const [pages, usePages] = React.useState(0);
 
+  const [serviceOpen, useServiceOpen] = React.useState({
+    status: false,
+    data: {}});
+
+  const SetServiceTrue = (value) => {
+    useServiceOpen({
+      status: true,
+      data: value})
+  }
+
+  const ResetSetService = () => {
+    useServiceOpen({
+      status: false,
+      data: {}})
+  }
+  
   const SetPages = (value) => {
     usePages(value);
   }
@@ -29,8 +45,8 @@ const Services = () => {
     getServices();
   }, []);
 
-  const hey =()=>{
-    alert("he")
+  const ActivateService = (data) =>{
+    SetServiceTrue(data)
   }
 
   const chunkArray = (myArray, chunk_size) => {
@@ -64,13 +80,13 @@ const Services = () => {
   return (
     <div>
       <NavBar option={"services"}/>
-      <div className="float-right ServicesContainer"> 
+      { !serviceOpen.status ? (<div className="float-right ServicesContainer"> 
         <h1 className="ServiceTile text-center">Our Services</h1>
         <h3 className="ServiceSubTile text-center">Check the differents services tha we offer.
         </h3>
         <div className="ServicesDisplay mt-3 d-flex justify-content-center">
           { serviceList.length > 0 ? ( serviceList[pagination].map((service) => (
-            <div className="serviceContainer" onClick={() => {hey()}} key={service.id}><Service  className={service.id} service={service} /></div>
+            <div className="serviceContainer" onClick={() => {ActivateService(service)}} key={service.id}><Service  className={service.id} service={service} /></div>
         
         ))) : null}
        
@@ -87,6 +103,10 @@ const Services = () => {
         
         
     </div>
+       ): null}
+           
+    { serviceOpen.status ? <button onClick={() => {ResetSetService()}}>reset</button>: null}
+    
     </div>
     
   )

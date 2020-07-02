@@ -49,10 +49,10 @@
 
 .serviceContainer {
   cursor: pointer;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 .serviceContainer:hover {
-  transform: scale(1.08); 
+  transform: scale(1.08);
   z-index: 0;
 }
