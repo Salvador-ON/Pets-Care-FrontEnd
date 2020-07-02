@@ -1,7 +1,7 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu'
 import {Link} from 'react-router-dom'
 import '../styles/Landing.css';
+import HidenNav from './HidenNav';
 const Landing = () => {
 
 
@@ -9,16 +9,7 @@ const Landing = () => {
 
   return (
     <div className="LandingWrap pt-2 ">
-      <Menu>
-      <Link className="butt" to='/services'>
-        <span  className="my-2 butt">Services</span>
-      </Link>
-        <a  className="my-2 butt">Values</a>
-        <a  className="my-2 butt">Dashboard</a>
-        <a  className="my-2 butt">Sign Up</a>
-        <a  className="my-2 butt">Log In</a>
-        <a  className="my-2 butt">Log Out</a>
-      </Menu>
+      <HidenNav className="d-none"/>
 
       <div className="LogoImage"></div>
       
