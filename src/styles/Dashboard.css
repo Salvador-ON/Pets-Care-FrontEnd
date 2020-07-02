@@ -1,19 +1,19 @@
-.DashboardContainer{
+.DashboardContainer {
   width: 81vw;
   height: 100vh;
   overflow-y: scroll;
 }
 
-.DashboardTile{
+.DashboardTile {
   margin-top: 3vh;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   color: #101e42 !important;
   font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   font-weight: 900;
 }
 
-.DashboardSubTile{
+.DashboardSubTile {
   color: #292e3b !important;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
@@ -32,13 +32,13 @@
   border-bottom-right-radius: 25%;
 }
 
-.btr  {
+.btr {
   border-top-left-radius: 25%;
   border-bottom-left-radius: 25%;
 }
 
 .btr:focus {
-  outline:0;
+  outline: 0;
 }
 
 .paginationButCont {

@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import loggedInStatus from './loggedInStatus';
 
-
 const allReducers = combineReducers({
   loggedInStatus,
 });

@@ -1,11 +1,11 @@
-.LoginContainer{
+.LoginContainer {
   width: 81vw;
   height: 100vh;
 }
 
-.LoginTile{
+.LoginTile {
   margin-top: 1vh;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   color: #101e42 !important;
   font-family: 'Roboto', sans-serif;
   font-size: 3rem;
@@ -23,7 +23,7 @@
   color: white;
   background-color: #101e42;
   border: none;
-  outline:none;
+  outline: none;
 }
 
 .btnSubmit:hover {
@@ -33,10 +33,10 @@
 }
 
 .btnSubmit:focus {
-  outline:0;
+  outline: 0;
 }
 
-.dogImageLoginContainer{
+.dogImageLoginContainer {
   margin-left: 25px;
   width: 29vw;
   height: 34vh;

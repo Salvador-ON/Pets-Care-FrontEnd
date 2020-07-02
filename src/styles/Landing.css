@@ -11,7 +11,7 @@
   background: white;
 }
 
-/* Color/shape of burger icon bars on hover*/
+/* Color/shape of burger icon bars on hover */
 .bm-burger-bars-hover {
   background: #009ffc;
 }
@@ -65,19 +65,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
-.butt:focus {
-  outline:0;
+.butt {
+  color: white !important;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1.8rem;
 }
 
+.butt:focus {
+  outline: 0;
+}
 
 .butt:hover {
   color: #009ffc !important;
   text-decoration: none !important;
   cursor: pointer;
-}
-
-.butt {
-  color: white !important;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 1.8rem;
 }
