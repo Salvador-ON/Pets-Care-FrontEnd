@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import ClientButtons from "./ClientButtons.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import '../styles/UserAppointments.css'
 const UserAppointments = () => {
 
@@ -53,8 +54,6 @@ const UserAppointments = () => {
       return (date > new Date())})
     }
       
-  
-
   const handleForm = (e) => {
     SetAppointmenstPast(e.target.checked)
     let date = new Date("2020-06-29")
@@ -65,8 +64,19 @@ const UserAppointments = () => {
     console.log(new Date("2020-06-29") < new Date())
     console.log("pt", pastAppointments());
     console.log("ft", futureAppointments());
-  
   }
+
+  const deleteAppointment = (value) => {
+    axios
+      .delete("http://localhost:3001/appointments/"+`${value}`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        getAppointments();
+      })
+      .catch((error) => {
+      });
+  };
   return (
     <div className="ServiceList mt-2 mr-2">
       
@@ -103,7 +113,7 @@ const UserAppointments = () => {
               <td>{appo.time.split("T")[1].split(".")[0]}</td>
               <td>{appo.pet_name}</td>
               <td>{appo.service_name}</td>
-              { !appointmentPast? <td>delete</td>: null }
+              { !appointmentPast? <td><FontAwesomeIcon icon={faTrash} onClick={() => deleteAppointment(appo.id)} className="fa-2x text-danger trashCan"/></td>: null }
               
               {/* <td><FontAwesomeIcon icon={faTrash} onClick={() => deleteServices(service.id)} className="fa-2x text-danger trashCan"/></td> */}
             </tr>

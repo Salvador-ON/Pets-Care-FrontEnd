@@ -193,7 +193,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">date</label>
+              <label htmlFor="password">Date</label>
               <input
                 onChange={handleDate}
                 type="date"
@@ -206,8 +206,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="time">time</label>
-              <select onChange={HandleForm} id="time" class="form-control" id="exampleFormControlSelect1" value={time} name="time"
+              <label htmlFor="time">Available hours</label>
+              <select onChange={HandleForm} id="time" class="form-control" value={time} name="time"
                 required>
                    <option value="" disabled selected>Select your option</option>
                   {availables.map((available)=>(
