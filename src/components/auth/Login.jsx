@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
 
-
 const Registration = () => {
   let history = useHistory();
 
@@ -37,22 +36,19 @@ const Registration = () => {
     });
   };
 
-
-  const { email, password} = userForm;
+  const { email, password } = userForm;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      email.trim() === "" ||
-      password.trim() === "" ) {
+    if (email.trim() === "" || password.trim() === "") {
       SetError(true, "empty field");
       return;
     }
 
-      axios
+    axios
       .post(
-        "http://localhost:3001/signin",
+        "http://pets-care-api.herokuapp.com/signin",
         {
           user: {
             email: email,
@@ -69,8 +65,7 @@ const Registration = () => {
           SetError(true, response.data.error);
         }
       })
-      .catch((error) => {
-      });  
+      .catch((error) => {});
   };
 
   return (
@@ -84,7 +79,6 @@ const Registration = () => {
 
         <div className="d-flex mt-5">
           <form onSubmit={HandleSubmit} className="w-50 mx-2">
-            
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Email address</label>
               <input
@@ -111,14 +105,16 @@ const Registration = () => {
                 minLength="6"
               />
             </div>
-            
+
             <div>
-              <button type="submit" className="btnSubmit rounded-pill py-1 px-3 mr-3">
+              <button
+                type="submit"
+                className="btnSubmit rounded-pill py-1 px-3 mr-3"
+              >
                 Submit
               </button>
               {error.value ? <Error error={error.data} /> : null}
             </div>
-            
           </form>
 
           <div className="dogImageLoginContainer"></div>

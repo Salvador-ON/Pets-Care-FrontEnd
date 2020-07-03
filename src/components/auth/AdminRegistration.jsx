@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
 
-
 const Registration = () => {
   let history = useHistory();
 
@@ -41,7 +40,14 @@ const Registration = () => {
     });
   };
 
-  const { email, password, passwordConfirmation, name, phone, token } = userForm;
+  const {
+    email,
+    password,
+    passwordConfirmation,
+    name,
+    phone,
+    token,
+  } = userForm;
 
   const HandleSubmit = (e) => {
     e.preventDefault();
@@ -66,10 +72,9 @@ const Registration = () => {
       SetError(false, "");
     }
 
-    
-      axios
+    axios
       .post(
-        "http://localhost:3001/signup",
+        "http://pets-care-api.herokuapp.com/signup",
         {
           user: {
             email: email,
@@ -77,7 +82,7 @@ const Registration = () => {
             password_confirmation: passwordConfirmation,
             phone: phone,
             name: name,
-            token: token
+            token: token,
           },
         },
         { withCredentials: true }
@@ -86,20 +91,18 @@ const Registration = () => {
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
-        } else if (response.data.hasOwnProperty('token')){
+        } else if (response.data.hasOwnProperty("token")) {
           SetError(true, "invalid token");
-        }
-        else {
+        } else {
           const data = response.data.error;
-          const keys = Object.keys(data)
-          const errorMessage = keys.map((key)=>{
-            return (key + " "+ data[key].toString())
-          })
+          const keys = Object.keys(data);
+          const errorMessage = keys.map((key) => {
+            return key + " " + data[key].toString();
+          });
           SetError(true, errorMessage);
         }
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -107,10 +110,10 @@ const Registration = () => {
       <NavBar option={"signup"} />
       <div className="float-right SignupContainer">
         <h1 className="SignupTile text-center">Admin Registration</h1>
-        
+
         <div className="d-flex">
           <form onSubmit={HandleSubmit} className="w-50 mx-2">
-          <div className="form-group">
+            <div className="form-group">
               <label htmlFor="token">Admin or Employe Token</label>
               <input
                 onChange={HandleForm}
@@ -189,14 +192,15 @@ const Registration = () => {
               />
             </div>
 
-            
             <div>
-              <button type="submit" className="btnSubmit rounded-pill py-1 px-3 mr-3">
+              <button
+                type="submit"
+                className="btnSubmit rounded-pill py-1 px-3 mr-3"
+              >
                 Submit
               </button>
               {error.value ? <Error error={error.data} /> : null}
             </div>
-            
           </form>
 
           <div className="dogImageContainer"></div>

@@ -5,7 +5,10 @@ import "../styles/Services.css";
 import { useSelector } from "react-redux";
 import Service from "../components/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faChevronRight,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import ServiceShow from "../components/ServiceShow";
 const Services = () => {
   const user = useSelector((state) => state.loggedInStatus);
@@ -68,12 +71,12 @@ const Services = () => {
 
   const getServices = () => {
     axios
-      .get("http://localhost:3001/services", {
+      .get("http://pets-care-api.herokuapp.com/services", {
         withCredentials: true,
       })
       .then((response) => {
         SetServiceList(chunkArray(response.data.services, 3));
-        SetPages(Math.ceil((response.data.services.length - 1) / 3)-1);
+        SetPages(Math.ceil((response.data.services.length - 1) / 3) - 1);
       })
       .catch((error) => {});
   };
@@ -141,7 +144,6 @@ const Services = () => {
           user={user}
         />
       ) : null}
-
     </div>
   );
 };

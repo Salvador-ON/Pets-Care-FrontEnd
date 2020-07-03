@@ -4,10 +4,9 @@ import Error from "./Error";
 import { storage } from "./firebaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const FormServices = ({ ButtonSelected }) => {
- 
   const [userForm, useUserForm] = React.useState({
     name: "",
     description: "",
@@ -37,17 +36,17 @@ const FormServices = ({ ButtonSelected }) => {
     data: "",
   });
 
-  const SetImage = (data) =>{
-    useImage(data)
-  }
+  const SetImage = (data) => {
+    useImage(data);
+  };
 
-  const SetUrl = (data) =>{
-    useUrl(data)
-  }
+  const SetUrl = (data) => {
+    useUrl(data);
+  };
 
   const SetProgress = (data) => {
-    useProgress(data)
-  }
+    useProgress(data);
+  };
 
   const SetError = (value, data) => {
     useError({
@@ -171,7 +170,7 @@ const FormServices = ({ ButtonSelected }) => {
 
     axios
       .post(
-        "http://localhost:3001/services",
+        "http://pets-care-api.herokuapp.com/services",
         {
           service: {
             name: name,
@@ -186,10 +185,9 @@ const FormServices = ({ ButtonSelected }) => {
       .then((response) => {
         if (response.data.status === "created") {
           ButtonSelected("ser");
-        } 
+        }
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
 
     ResetForm();
   };
@@ -197,7 +195,7 @@ const FormServices = ({ ButtonSelected }) => {
   return (
     <div className="w-50 ml-3">
       <h3 className="DashboardSubTile mt-2">New Services</h3>
-   
+
       <form onSubmit={HandleSubmit}>
         <div className="form-group mb-1">
           <label htmlFor="serviceName">Service name</label>
@@ -242,18 +240,30 @@ const FormServices = ({ ButtonSelected }) => {
         </div>
 
         <div className="form-group mt-2 mb-1">
-        <label htmlFor="upload" className="mr-2">Upload image</label>
+          <label htmlFor="upload" className="mr-2">
+            Upload image
+          </label>
           <input id="upload" type="file" onChange={handChange} />
-          {progress === 0 ?  <button type="button" onClick={handleUpdate} className="btnSubmit rounded-pill py-1 px-3 mr-3">
-            Upload
-          </button> : ( url.length === 0 ?  <span>Please wait</span>: null ) }
-         
-
+          {progress === 0 ? (
+            <button
+              type="button"
+              onClick={handleUpdate}
+              className="btnSubmit rounded-pill py-1 px-3 mr-3"
+            >
+              Upload
+            </button>
+          ) : url.length === 0 ? (
+            <span>Please wait</span>
+          ) : null}
         </div>
 
-
         <div className="form-group mb-1">
-          <label htmlFor="uploadField">Url uploaded image {url.length > 0 ? <FontAwesomeIcon icon={faCheckCircle}  className=" text-success"/> : null}</label>
+          <label htmlFor="uploadField">
+            Url uploaded image{" "}
+            {url.length > 0 ? (
+              <FontAwesomeIcon icon={faCheckCircle} className=" text-success" />
+            ) : null}
+          </label>
           <input
             onChange={HandleForm}
             type="text"
@@ -304,7 +314,6 @@ FormServices.propTypes = {
   SetWelcome: PropTypes.func.isRequired,
   SetInvalid: PropTypes.func.isRequired,
   invalidQuery: PropTypes.bool.isRequired,
-
 };
 
 export default FormServices;

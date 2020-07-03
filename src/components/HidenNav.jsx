@@ -1,10 +1,10 @@
-import React from 'react';
-import { slide as Menu } from 'react-burger-menu'
-import {Link, useHistory} from 'react-router-dom'
+import React from "react";
+import { slide as Menu } from "react-burger-menu";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { LogOut } from "../actions/index.js";
-import '../styles/Landing.css';
+import "../styles/Landing.css";
 
 const HidenNav = () => {
   const user = useSelector((state) => state.loggedInStatus);
@@ -12,7 +12,7 @@ const HidenNav = () => {
   let history = useHistory();
   const handleLogOut = () => {
     axios
-      .delete("http://localhost:3001/logout", {
+      .delete("http://pets-care-api.herokuapp.com/logout", {
         withCredentials: true,
       })
       .then((response) => {
@@ -21,33 +21,39 @@ const HidenNav = () => {
           history.push("/services");
         }
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
-  return ( 
+  return (
     <Menu>
-      <Link className="butt" to='/services'>
+      <Link className="butt" to="/services">
         Services
       </Link>
-      
-      {user.loggedInStatus === "LOGGED_IN" ? <Link className="my-2 butt" to='/dashboard'>
-      Dashboard
-      </Link> : null}
 
+      {user.loggedInStatus === "LOGGED_IN" ? (
+        <Link className="my-2 butt" to="/dashboard">
+          Dashboard
+        </Link>
+      ) : null}
 
-      {user.loggedInStatus !== "LOGGED_IN" ? <Link className="my-2 butt" to='/signup'>
-      Sign Up
-      </Link> : null}
+      {user.loggedInStatus !== "LOGGED_IN" ? (
+        <Link className="my-2 butt" to="/signup">
+          Sign Up
+        </Link>
+      ) : null}
 
-      {user.loggedInStatus !== "LOGGED_IN" ? <Link className="my-2 butt" to='/login'>
-      Log In
-      </Link> : null}
+      {user.loggedInStatus !== "LOGGED_IN" ? (
+        <Link className="my-2 butt" to="/login">
+          Log In
+        </Link>
+      ) : null}
 
-      {user.loggedInStatus === "LOGGED_IN" ? <span className="my-2 butt" onClick={handleLogOut}>Log Out</span> : null}
+      {user.loggedInStatus === "LOGGED_IN" ? (
+        <span className="my-2 butt" onClick={handleLogOut}>
+          Log Out
+        </span>
+      ) : null}
+    </Menu>
+  );
+};
 
-      
-      </Menu>
-   );
-}
- 
 export default HidenNav;

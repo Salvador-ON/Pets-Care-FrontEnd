@@ -63,9 +63,9 @@ const Registration = () => {
       SetError(false, "");
     }
 
-      axios
+    axios
       .post(
-        "http://localhost:3001/signup",
+        "http://pets-care-api.herokuapp.com/signup",
         {
           user: {
             email: email,
@@ -73,7 +73,7 @@ const Registration = () => {
             password_confirmation: passwordConfirmation,
             phone: "phone",
             name: "name",
-            token: ""
+            token: "",
           },
         },
         { withCredentials: true }
@@ -84,20 +84,14 @@ const Registration = () => {
           history.push("/dashboard");
         } else {
           const data = response.data.error;
-          const keys = Object.keys(data)
-          const errorMessage = keys.map((key)=>{
-            return (key + " "+ data[key].toString())
-          })
+          const keys = Object.keys(data);
+          const errorMessage = keys.map((key) => {
+            return key + " " + data[key].toString();
+          });
           SetError(true, errorMessage);
         }
-        
       })
-      .catch((error) => {
-
-      });
-
-      
-    
+      .catch((error) => {});
   };
 
   return (
@@ -179,14 +173,15 @@ const Registration = () => {
               />
             </div>
 
-            
             <div>
-              <button type="submit" className="btnSubmit rounded-pill py-1 px-3 mr-3">
+              <button
+                type="submit"
+                className="btnSubmit rounded-pill py-1 px-3 mr-3"
+              >
                 Submit
               </button>
               {error.value ? <Error error={error.data} /> : null}
             </div>
-            
           </form>
 
           <div className="dogImageContainer"></div>

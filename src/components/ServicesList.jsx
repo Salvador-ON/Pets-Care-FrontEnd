@@ -13,26 +13,24 @@ const ServicesList = () => {
 
   const getServices = () => {
     axios
-      .get("http://localhost:3001/services", {
+      .get("http://pets-care-api.herokuapp.com/services", {
         withCredentials: true,
       })
       .then((response) => {
         SetServiceList(response.data.services);
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   const deleteServices = (value) => {
     axios
-      .delete("http://localhost:3001/services/" + value, {
+      .delete("http://pets-care-api.herokuapp.com/services/" + value, {
         withCredentials: true,
       })
       .then((response) => {
         getServices();
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   };
 
   React.useEffect(() => {
@@ -61,7 +59,13 @@ const ServicesList = () => {
               <td>{service.name}</td>
               <td>{service.price}</td>
               <td>{service.description}</td>
-              <td><FontAwesomeIcon icon={faTrash} onClick={() => deleteServices(service.id)} className="fa-2x text-danger trashCan"/></td>
+              <td>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={() => deleteServices(service.id)}
+                  className="fa-2x text-danger trashCan"
+                />
+              </td>
             </tr>
           ))}
         </tbody>

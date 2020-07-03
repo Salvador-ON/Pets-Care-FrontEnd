@@ -2,11 +2,10 @@ import React from "react";
 import axios from "axios";
 
 const FormArticles = () => {
-
   const [userForm, useUserForm] = React.useState({
     pet_name: "",
     date: "",
-    time: ""
+    time: "",
   });
 
   const [error, useError] = React.useState(false);
@@ -26,7 +25,7 @@ const FormArticles = () => {
     useUserForm({
       pet_name: "",
       date: "",
-      time: ""
+      time: "",
     });
   };
 
@@ -35,9 +34,7 @@ const FormArticles = () => {
   const HandleSubmit = (e) => {
     e.preventDefault();
 
-    if (date.trim() === "" || 
-        pet_name.trim() === ""|| 
-       time.trim() === "") {
+    if (date.trim() === "" || pet_name.trim() === "" || time.trim() === "") {
       SetError(true);
       return;
     }
@@ -46,7 +43,7 @@ const FormArticles = () => {
 
     axios
       .post(
-        "http://localhost:3001/appointments",
+        "http://pets-care-api.herokuapp.com/appointments",
         {
           appointment: {
             date: date,
@@ -63,10 +60,8 @@ const FormArticles = () => {
         } else {
           // shoow error
         }
-
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
 
     ResetForm();
   };
