@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import PropTypes from 'prop-types';
 
 const Service = ({service}) => {
   return (
@@ -21,5 +22,9 @@ const Service = ({service}) => {
     </div>
     );
 }
+
+Service.propTypes = {
+  service: PropTypes.object.isRequired,
+};
  
 export default Service;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from "react-redux";
+import PropTypes from 'prop-types';
 
 const AdminButtons = ({ButtonSelected}) => {
   const user = useSelector((state) => state.loggedInStatus);
@@ -21,5 +22,9 @@ const AdminButtons = ({ButtonSelected}) => {
     </div>
     );
 }
+
+AdminButtons.propTypes = {
+  ButtonSelected: PropTypes.func.isRequired,
+};
  
 export default AdminButtons;

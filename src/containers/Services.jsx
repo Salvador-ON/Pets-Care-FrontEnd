@@ -5,10 +5,7 @@ import "../styles/Services.css";
 import { useSelector } from "react-redux";
 import Service from "../components/Service";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import {faChevronRight,faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import ServiceShow from "../components/ServiceShow";
 const Services = () => {
   const user = useSelector((state) => state.loggedInStatus);

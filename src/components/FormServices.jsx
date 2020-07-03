@@ -4,17 +4,10 @@ import Error from "./Error";
 import { storage } from "./firebaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-
-
-// import {useSelector} from 'react-redux'
-// import { LogIn } from '../../actions/index.js'
-// import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const FormServices = ({ ButtonSelected }) => {
-  // let history = useHistory();
-
-  // const dispatch = useDispatch();
-
+ 
   const [userForm, useUserForm] = React.useState({
     name: "",
     description: "",
@@ -303,6 +296,15 @@ const FormServices = ({ ButtonSelected }) => {
       </form>
     </div>
   );
+};
+
+FormServices.propTypes = {
+  SetData: PropTypes.func.isRequired,
+  SetSearching: PropTypes.func.isRequired,
+  SetWelcome: PropTypes.func.isRequired,
+  SetInvalid: PropTypes.func.isRequired,
+  invalidQuery: PropTypes.bool.isRequired,
+
 };
 
 export default FormServices;

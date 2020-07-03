@@ -87,6 +87,6 @@ const AppointmentsEmployes = () => {
       
     </div>
   )}
-// availables?service_id=1&date=2020-06-28
+
  
 export default AppointmentsEmployes;

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   let history = useHistory();
@@ -236,4 +237,10 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   );
 };
 
+
+ServiceShow.propTypes = {
+  user: PropTypes.object.isRequired,
+  ResetSetService: PropTypes.func.isRequired,
+  serviceOpen: PropTypes.object.isRequired
+};
 export default ServiceShow;

@@ -1,13 +1,7 @@
 import React from "react";
 import axios from "axios";
-// import {useSelector} from 'react-redux'
-// import { LogIn } from '../../actions/index.js'
-// import { useHistory } from "react-router-dom";
 
-const FormArticles = ({ userID }) => {
-  // let history = useHistory();
-
-  // const dispatch = useDispatch();
+const FormArticles = () => {
 
   const [userForm, useUserForm] = React.useState({
     pet_name: "",

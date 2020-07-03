@@ -4,9 +4,6 @@ import '../styles/Landing.css';
 import HidenNav from './HidenNav';
 const Landing = () => {
 
-
-  
-
   return (
     <div className="LandingWrap pt-2 ">
       <HidenNav className="d-none"/>

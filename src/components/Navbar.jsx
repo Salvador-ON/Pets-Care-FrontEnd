@@ -7,6 +7,7 @@ import { faFacebook, faTwitter, faInstagram, faYoutube } from "@fortawesome/free
 import { LogOut } from "../actions/index.js";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 const NavBar = ({option}) => {
   const user = useSelector((state) => state.loggedInStatus);
@@ -69,6 +70,10 @@ const NavBar = ({option}) => {
       </div>
     </nav>
   );
+};
+
+NavBar.propTypes = {
+  option: PropTypes.string.isRequired,
 };
 
 export default NavBar;
