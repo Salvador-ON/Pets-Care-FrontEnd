@@ -74,7 +74,7 @@ const Registration = () => {
 
     axios
       .post(
-        "http://pets-care-api.herokuapp.com/signup",
+        "https://pets-care-api.herokuapp.com/signup",
         {
           user: {
             email: email,

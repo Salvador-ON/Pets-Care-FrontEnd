@@ -170,7 +170,7 @@ const FormServices = ({ ButtonSelected }) => {
 
     axios
       .post(
-        "http://pets-care-api.herokuapp.com/services",
+        "https://pets-care-api.herokuapp.com/services",
         {
           service: {
             name: name,

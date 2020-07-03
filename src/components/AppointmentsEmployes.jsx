@@ -21,7 +21,7 @@ const AppointmentsEmployes = () => {
 
   const getAppointments = () => {
     axios
-      .get("http://pets-care-api.herokuapp.com/dashboard?date=" + dateSearch, {
+      .get("https://pets-care-api.herokuapp.com/dashboard?date=" + dateSearch, {
         withCredentials: true,
       })
       .then((response) => {

@@ -43,7 +43,7 @@ const FormArticles = () => {
 
     axios
       .post(
-        "http://pets-care-api.herokuapp.com/appointments",
+        "https://pets-care-api.herokuapp.com/appointments",
         {
           appointment: {
             date: date,

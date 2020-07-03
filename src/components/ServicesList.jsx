@@ -13,7 +13,7 @@ const ServicesList = () => {
 
   const getServices = () => {
     axios
-      .get("http://pets-care-api.herokuapp.com/services", {
+      .get("https://pets-care-api.herokuapp.com/services", {
         withCredentials: true,
       })
       .then((response) => {
@@ -24,7 +24,7 @@ const ServicesList = () => {
 
   const deleteServices = (value) => {
     axios
-      .delete("http://pets-care-api.herokuapp.com/services/" + value, {
+      .delete("https://pets-care-api.herokuapp.com/services/" + value, {
         withCredentials: true,
       })
       .then((response) => {

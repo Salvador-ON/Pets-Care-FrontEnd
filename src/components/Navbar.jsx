@@ -20,7 +20,7 @@ const NavBar = ({ option }) => {
   let history = useHistory();
   const handleLogOut = () => {
     axios
-      .delete("http://pets-care-api.herokuapp.com/logout", {
+      .delete("https://pets-care-api.herokuapp.com/logout", {
         withCredentials: true,
       })
       .then((response) => {

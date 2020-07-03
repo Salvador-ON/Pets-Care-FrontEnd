@@ -71,7 +71,7 @@ const Services = () => {
 
   const getServices = () => {
     axios
-      .get("http://pets-care-api.herokuapp.com/services", {
+      .get("https://pets-care-api.herokuapp.com/services", {
         withCredentials: true,
       })
       .then((response) => {

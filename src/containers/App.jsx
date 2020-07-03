@@ -20,7 +20,7 @@ const App = () => {
 
   const checkLoginSatus = () => {
     axios
-      .get("http://pets-care-api.herokuapp.com/logged_in", {
+      .get("https://pets-care-api.herokuapp.com/logged_in", {
         withCredentials: true,
       })
       .then((response) => {

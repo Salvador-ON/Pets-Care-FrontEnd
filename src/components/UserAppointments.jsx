@@ -17,7 +17,7 @@ const UserAppointments = () => {
 
   const getAppointments = () => {
     axios
-      .get("http://pets-care-api.herokuapp.com/appointments", {
+      .get("https://pets-care-api.herokuapp.com/appointments", {
         withCredentials: true,
       })
       .then((response) => {
@@ -52,7 +52,7 @@ const UserAppointments = () => {
 
   const deleteAppointment = (value) => {
     axios
-      .delete("http://pets-care-api.herokuapp.com/appointments/" + value, {
+      .delete("https://pets-care-api.herokuapp.com/appointments/" + value, {
         withCredentials: true,
       })
       .then((response) => {
