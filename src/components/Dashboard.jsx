@@ -15,7 +15,6 @@ import AppointmentsEmployes from "./AppointmentsEmployes.jsx";
 import UserAppointments from "./UserAppointments.jsx";
 
 const Dashboard = () => {
-  // let history = useHistory();
   const dispatch = useDispatch();
 
   const [selectedButton, useSelectedButton] = React.useState("");
