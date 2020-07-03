@@ -22,7 +22,6 @@ const UserAppointments = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data.appointments);
         SetAppoList(response.data.appointments);
       })
       .catch((error) => {});
@@ -30,15 +29,8 @@ const UserAppointments = () => {
 
   React.useEffect(() => {
     getAppointments();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const dateToday = () => {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    const yyyy = today.getFullYear();
-    return yyyy + '-' + mm + '-' + dd;
-  }
 
   const pastAppointments = () => {
     return appoList.filter((item) => {
@@ -55,20 +47,12 @@ const UserAppointments = () => {
     }
       
   const handleForm = (e) => {
-    SetAppointmenstPast(e.target.checked)
-    let date = new Date("2020-06-29")
-    date.setHours(7);
-    console.log(date);
-  
-    console.log(new Date())
-    console.log(new Date("2020-06-29") < new Date())
-    console.log("pt", pastAppointments());
-    console.log("ft", futureAppointments());
+    SetAppointmenstPast(e.target.checked) 
   }
 
   const deleteAppointment = (value) => {
     axios
-      .delete("http://localhost:3001/appointments/"+`${value}`, {
+      .delete("http://localhost:3001/appointments/" + value, {
         withCredentials: true,
       })
       .then((response) => {

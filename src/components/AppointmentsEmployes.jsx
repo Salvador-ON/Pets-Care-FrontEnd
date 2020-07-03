@@ -28,7 +28,6 @@ const AppointmentsEmployes = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data.data_appointments)
         SetServiceList(response.data.data_appointments);
       })
       .catch((error) => {
@@ -45,7 +44,7 @@ const AppointmentsEmployes = () => {
   React.useEffect(() => {
     getAppointments();
     
-  }, [dateSearch]);
+  }, [dateSearch]); // eslint-disable-line react-hooks/exhaustive-deps
 
   
 

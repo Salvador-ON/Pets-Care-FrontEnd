@@ -25,7 +25,7 @@ const ServicesList = () => {
 
   const deleteServices = (value) => {
     axios
-      .delete("http://localhost:3001/services/"+`${value}`, {
+      .delete("http://localhost:3001/services/" + value, {
         withCredentials: true,
       })
       .then((response) => {
@@ -37,7 +37,7 @@ const ServicesList = () => {
 
   React.useEffect(() => {
     getServices();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   //
   return (

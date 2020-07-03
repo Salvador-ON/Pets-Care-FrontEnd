@@ -87,10 +87,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
         } else {
           // shoow error
         }
-        console.log(response);
       })
       .catch((error) => {
-        console.log(error);
       });
 
     ResetForm();

@@ -99,7 +99,7 @@ const FormServices = ({ ButtonSelected }) => {
     });
   };
 
-  const { name, description, price, image_url } = userForm;
+  const { name, description, price } = userForm;
   const hours = [
     "09:00",
     "10:00",
@@ -193,15 +193,9 @@ const FormServices = ({ ButtonSelected }) => {
       .then((response) => {
         if (response.data.status === "created") {
           ButtonSelected("ser");
-          // dispatch(LogIn(response.data.user))
-          // history.push("/dashboard");
-        } else {
-          // shoow error
-        }
-        console.log(response);
+        } 
       })
       .catch((error) => {
-        console.log(error);
       });
 
     ResetForm();

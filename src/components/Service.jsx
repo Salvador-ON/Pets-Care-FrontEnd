@@ -1,11 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Service = ({service}) => {
   return (
     <div className="mx-4" style={{width: "18rem"}}>
-      <img className="card-img-top rounded" style={{height: "18rem"}} src={service.image_url}/>
+      <img className="card-img-top rounded" style={{height: "18rem"}} src={service.image_url} alt="Logo_Pets_Care"/>
       <div className="card-body">
         <h5 className="card-text text-center text-capitalize font-weight-bold">{service.name}</h5>
         <hr className="w-50" style={{borderBottom: "3px #b8c8cf dotted"}}/>

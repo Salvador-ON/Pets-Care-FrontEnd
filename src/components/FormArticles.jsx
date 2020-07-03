@@ -65,15 +65,13 @@ const FormArticles = ({ userID }) => {
       )
       .then((response) => {
         if (response.data.status === "created") {
-          // dispatch(LogIn(response.data.user))
-          // history.push("/dashboard");
+          // add message success
         } else {
           // shoow error
         }
-        console.log(response);
+
       })
       .catch((error) => {
-        console.log(error);
       });
 
     ResetForm();

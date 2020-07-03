@@ -6,7 +6,6 @@ import "../../styles/Registration.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
-import dogLap from "../../assets/dog_laptop.jpg";
 
 const Registration = () => {
   let history = useHistory();
@@ -37,16 +36,6 @@ const Registration = () => {
     useUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
-    });
-  };
-
-  const ResetForm = () => {
-    useUserForm({
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      name: "",
-      phone: "",
     });
   };
 
@@ -90,8 +79,6 @@ const Registration = () => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
-
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");

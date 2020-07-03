@@ -49,7 +49,7 @@ const Services = () => {
 
   React.useEffect(() => {
     getServices();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const ActivateService = (data) => {
     SetServiceTrue(data);

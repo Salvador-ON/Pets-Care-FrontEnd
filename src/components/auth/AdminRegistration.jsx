@@ -41,17 +41,6 @@ const Registration = () => {
     });
   };
 
-  const ResetForm = () => {
-    useUserForm({
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      name: "",
-      phone: "",
-      token: "",
-    });
-  };
-
   const { email, password, passwordConfirmation, name, phone, token } = userForm;
 
   const HandleSubmit = (e) => {
@@ -94,8 +83,6 @@ const Registration = () => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
-
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
           history.push("/dashboard");
@@ -110,7 +97,6 @@ const Registration = () => {
           })
           SetError(true, errorMessage);
         }
-        console.log(response);
       })
       .catch((error) => {
       });

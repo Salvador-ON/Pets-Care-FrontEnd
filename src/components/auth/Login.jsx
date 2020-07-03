@@ -37,15 +37,6 @@ const Registration = () => {
     });
   };
 
-  const ResetForm = () => {
-    useUserForm({
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      name: "",
-      phone: "",
-    });
-  };
 
   const { email, password} = userForm;
 

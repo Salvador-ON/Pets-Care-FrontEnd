@@ -24,8 +24,6 @@ const App = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log("login", response);
-
         if (
           response.data.logged_in &&
           user.loggedInStatus === "NOT_LOGGED_IN"
@@ -37,10 +35,8 @@ const App = () => {
         ) {
           dispatch(LogOut());
         }
-        // console.log('resp', response);
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 

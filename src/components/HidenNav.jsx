@@ -17,15 +17,11 @@ const HidenNav = () => {
       })
       .then((response) => {
         if (response.data.logged_out) {
-          console.log(response.data.logged_out);
           dispatch(LogOut());
-          console.log(user);
           history.push("/services");
         }
-        console.log("out", response);
       })
       .catch((error) => {
-        console.log("err", error);
       });
   };
   return ( 
