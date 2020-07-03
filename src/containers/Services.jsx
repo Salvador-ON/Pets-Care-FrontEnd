@@ -76,7 +76,7 @@ const Services = () => {
       })
       .then((response) => {
         SetServiceList(chunkArray(response.data.services, 3));
-        SetPages(Math.ceil((response.data.services.length - 1) / 3));
+        SetPages(Math.ceil((response.data.services.length - 1) / 3)-1);
       })
       .catch((error) => {});
   };

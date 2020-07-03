@@ -1,11 +1,16 @@
 import React from "react";
 import axios from "axios";
-import Error from "./Error"
+import Error from "./Error";
+import { storage } from "./firebaseConfig";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+
+
 // import {useSelector} from 'react-redux'
 // import { LogIn } from '../../actions/index.js'
 // import { useHistory } from "react-router-dom";
 
-const FormServices = ({ButtonSelected}) => {
+const FormServices = ({ ButtonSelected }) => {
   // let history = useHistory();
 
   // const dispatch = useDispatch();
@@ -17,6 +22,9 @@ const FormServices = ({ButtonSelected}) => {
     image_url: "",
   });
 
+  const [image, useImage] = React.useState(null);
+  const [url, useUrl] = React.useState("");
+  const [progress, useProgress] = React.useState(0);
   const [userCheckForm, useUserCheckForm] = React.useState({
     "09:00": false,
     "10:00": false,
@@ -35,6 +43,18 @@ const FormServices = ({ButtonSelected}) => {
     value: false,
     data: "",
   });
+
+  const SetImage = (data) =>{
+    useImage(data)
+  }
+
+  const SetUrl = (data) =>{
+    useUrl(data)
+  }
+
+  const SetProgress = (data) => {
+    useProgress(data)
+  }
 
   const SetError = (value, data) => {
     useError({
@@ -93,6 +113,52 @@ const FormServices = ({ButtonSelected}) => {
     "18:00",
     "19:00",
   ];
+
+  const handChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const fileType = file["type"];
+      const validImageTypes = ["image/jpeg", "image/png"];
+      if (validImageTypes.includes(fileType)) {
+        SetError(false, "");
+        SetImage(file);
+      } else {
+        SetError(true, "Please select an image to upload");
+      }
+    }
+  };
+
+  const handleUpdate = () => {
+    if (image) {
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          SetProgress(progress);
+        },
+        (error) => {
+          SetError(true, error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then((url) => {
+              SetUrl(url);
+              // SetProgress(0);
+            });
+        }
+      );
+    } else {
+      SetError(true, "Error please choose an image to upload");
+    }
+  };
+
   const HandleSubmit = (e) => {
     e.preventDefault();
     const shedules = Object.keys(userCheckForm).filter(
@@ -102,9 +168,9 @@ const FormServices = ({ButtonSelected}) => {
       name.trim() === "" ||
       description.trim() === "" ||
       price.trim() === "" ||
-      image_url.trim() === ""
+      url.trim() === ""
     ) {
-      SetError(true ,"Empty field");
+      SetError(true, "Empty field");
       return;
     }
 
@@ -118,7 +184,7 @@ const FormServices = ({ButtonSelected}) => {
             name: name,
             description: description,
             price: price,
-            image_url: image_url,
+            image_url: url,
             schedule: shedules.toString(),
           },
         },
@@ -126,7 +192,7 @@ const FormServices = ({ButtonSelected}) => {
       )
       .then((response) => {
         if (response.data.status === "created") {
-          ButtonSelected("ser")
+          ButtonSelected("ser");
           // dispatch(LogIn(response.data.user))
           // history.push("/dashboard");
         } else {
@@ -144,15 +210,16 @@ const FormServices = ({ButtonSelected}) => {
   return (
     <div className="w-50 ml-3">
       <h3 className="DashboardSubTile mt-2">New Services</h3>
+   
       <form onSubmit={HandleSubmit}>
         <div className="form-group mb-1">
-          <label htmlFor="exampleInputEmail1">Service name</label>
+          <label htmlFor="serviceName">Service name</label>
           <input
             onChange={HandleForm}
             type="text"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="serviceName"
+            aria-describedby="serviceName"
             name="name"
             value={name}
             required
@@ -160,13 +227,13 @@ const FormServices = ({ButtonSelected}) => {
         </div>
 
         <div className="form-group mb-1">
-          <label htmlFor="exampleInputEmail1">Service price</label>
+          <label htmlFor="servicePrice">Service price</label>
           <input
             onChange={HandleForm}
             type="number"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="servicePrice"
+            aria-describedby="servicePrice"
             name="price"
             value={price}
             required
@@ -174,29 +241,40 @@ const FormServices = ({ButtonSelected}) => {
         </div>
 
         <div className="form-group mb-1">
-          <label htmlFor="exampleInputEmail1">Service Desciption</label>
+          <label htmlFor="serviceDescription">Service Desciption</label>
           <input
             onChange={HandleForm}
             type="text"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="serviceDescription"
+            aria-describedby="serviceDescription"
             name="description"
             value={description}
             required
           />
         </div>
 
+        <div className="form-group mt-2 mb-1">
+        <label htmlFor="upload" className="mr-2">Upload image</label>
+          <input id="upload" type="file" onChange={handChange} />
+          {progress === 0 ?  <button type="button" onClick={handleUpdate} className="btnSubmit rounded-pill py-1 px-3 mr-3">
+            Upload
+          </button> : ( url.length === 0 ?  <span>Please wait</span>: null ) }
+         
+
+        </div>
+
+
         <div className="form-group mb-1">
-          <label htmlFor="exampleInputEmail1">Service image</label>
+          <label htmlFor="uploadField">Url uploaded image {url.length > 0 ? <FontAwesomeIcon icon={faCheckCircle}  className=" text-success"/> : null}</label>
           <input
             onChange={HandleForm}
             type="text"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="uploadField"
+            aria-describedby="uploadField"
             name="image_url"
-            value={image_url}
+            value={url}
             required
           />
         </div>
