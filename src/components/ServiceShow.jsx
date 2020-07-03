@@ -92,7 +92,6 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
       .catch((error) => {
       });
 
-    ResetForm();
   };
 
   const getAppointments = (valueDate) => {
