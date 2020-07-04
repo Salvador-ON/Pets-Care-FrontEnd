@@ -31,6 +31,10 @@
   border-bottom-right-radius: 25%;
 }
 
+.btl:focus {
+  outline: 0;
+}
+
 .btr {
   border-top-left-radius: 25%;
   border-bottom-left-radius: 25%;
@@ -47,13 +51,14 @@
   bottom: 12vh;
 }
 
+
 .serviceContainer {
   cursor: pointer;
   transition: transform 0.2s;
 }
 
 .serviceContainer:hover {
-  transform: scale(1.08);
+  transform: scale(1.02);
   z-index: 0;
 }
 
