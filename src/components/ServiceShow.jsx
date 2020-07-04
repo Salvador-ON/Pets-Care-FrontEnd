@@ -3,7 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from 'prop-types';
 
 const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
@@ -74,8 +74,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
         {
           appointment: {
             date: date,
-            time: "11:00",
-            service_id: 1,
+            time: time,
+            service_id: serviceOpen.data.id,
             pet_name: pet_name,
           },
         },
@@ -120,25 +120,20 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
     <div className="float-right ServicesContainer">
       <div className="d-flex justify-content-center imageShow">
         <div className="col-7 mx-2 d-flex justify-content-center pt-3">
-          <img
-            className="card-img-top rounded mt-4"
-            alt={serviceOpen.data.name}
-            style={{ width: "30rem", height: "30rem" }}
-            src={serviceOpen.data.image_url}
-          />
+          <div  className="mt-4" style={{ backgroundRepeat:"no-repeat",backgroundSize:"contain", backgroundPosition: "center",  height: "80vh", width: "80vh", backgroundImage: `url(${serviceOpen.data.image_url})` }}>
+          </div>
+          
         </div>
         <div className="col-4 mx-2">
           <h1 className="text-capitalize font-weight-bold text-right">
             {serviceOpen.data.name}
           </h1>
-          <p className="h4">
-            <span className="h4 font-weight-bold mr-3">Description:</span>
-            {serviceOpen.data.description}
-          </p>
-          <h4>
-            <span className="h4 font-weight-bold">Price:</span>{" "}
-            {serviceOpen.data.price}
-          </h4>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary"><span className="h6 font-weight-bold mr-3">Description:</span></li>
+            <li class="list-group-item text-capitalize">{serviceOpen.data.description}</li>
+            <li class="list-group-item list-group-item-secondary"><span className="h6 font-weight-bold">Price:</span> <span className="ml-2">${serviceOpen.data.price}</span> </li>
+          </ul>
+ 
 
           <div className="mt-5 d-flex justify-content-center">
             {user.loggedInStatus !== "LOGGED_IN" ? (
@@ -146,9 +141,9 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
                 Log In or Sign Up to request an appointment
               </h6>
             ) : (
-              <Button variant="success" size="lg" onClick={handleShow}>
-                Request an Appointment
-              </Button>
+              <button className="btn btn-success btn-lg rounded-pill" onClick={handleShow}> <FontAwesomeIcon icon={faCalendarCheck} className={"mr-2"} />Request an Appointment</button>
+
+              
             )}
           </div>
         </div>
