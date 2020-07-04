@@ -309,11 +309,7 @@ const FormServices = ({ ButtonSelected }) => {
 };
 
 FormServices.propTypes = {
-  SetData: PropTypes.func.isRequired,
-  SetSearching: PropTypes.func.isRequired,
-  SetWelcome: PropTypes.func.isRequired,
-  SetInvalid: PropTypes.func.isRequired,
-  invalidQuery: PropTypes.bool.isRequired,
+  ButtonSelected: PropTypes.func.isRequired,
 };
 
 export default FormServices;

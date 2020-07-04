@@ -3,8 +3,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
+import { faChevronLeft, faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from 'prop-types';
 
 const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   let history = useHistory();
@@ -19,10 +19,10 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
     useAvailables([]);
   };
 
+  
   const handleShow = () => {
-    ResetForm();
-    setShow(true);
-  };
+    ResetForm()
+    setShow(true)};
 
   const [userForm, useUserForm] = React.useState({
     pet_name: "",
@@ -49,12 +49,12 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
       date: "",
       time: "",
     });
-    ResetAvailables();
+    ResetAvailables()
   };
 
   const handleClose = () => {
-    setShow(false);
-  };
+    setShow(false)
+    };
 
   const { pet_name, date, time } = userForm;
 
@@ -70,12 +70,12 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
     axios
       .post(
-        "https://pets-care-api.herokuapp.com/appointments",
+        "http://localhost:3001/appointments",
         {
           appointment: {
             date: date,
-            time: "11:00",
-            service_id: 1,
+            time: time,
+            service_id: serviceOpen.data.id,
             pet_name: pet_name,
           },
         },
@@ -83,19 +83,21 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
       )
       .then((response) => {
         if (response.data.status === "created") {
-          handleClose();
+            handleClose()
           history.push("/dashboard");
         } else {
           // shoow error
         }
       })
-      .catch((error) => {});
+      .catch((error) => {
+      });
+
   };
 
   const getAppointments = (valueDate) => {
     axios
       .get(
-        "https://pets-care-api.herokuapp.com/availables?service_id=" +
+        "http://localhost:3001/availables?service_id=" +
           serviceOpen.data.id +
           "&date=" +
           valueDate,
@@ -118,25 +120,20 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
     <div className="float-right ServicesContainer">
       <div className="d-flex justify-content-center imageShow">
         <div className="col-7 mx-2 d-flex justify-content-center pt-3">
-          <img
-            className="card-img-top rounded mt-4"
-            alt={serviceOpen.data.name}
-            style={{ width: "30rem", height: "30rem" }}
-            src={serviceOpen.data.image_url}
-          />
+          <div  className="mt-4" style={{ backgroundRepeat:"no-repeat",backgroundSize:"contain", backgroundPosition: "center",  height: "80vh", width: "80vh", backgroundImage: `url(${serviceOpen.data.image_url})` }}>
+          </div>
+          
         </div>
         <div className="col-4 mx-2">
           <h1 className="text-capitalize font-weight-bold text-right">
             {serviceOpen.data.name}
           </h1>
-          <p className="h4">
-            <span className="h4 font-weight-bold mr-3">Description:</span>
-            {serviceOpen.data.description}
-          </p>
-          <h4>
-            <span className="h4 font-weight-bold">Price:</span>{" "}
-            {serviceOpen.data.price}
-          </h4>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary"><span className="h6 font-weight-bold mr-3">Description:</span></li>
+            <li class="list-group-item text-capitalize">{serviceOpen.data.description}</li>
+            <li class="list-group-item list-group-item-secondary"><span className="h6 font-weight-bold">Price:</span> <span className="ml-2">${serviceOpen.data.price}</span> </li>
+          </ul>
+ 
 
           <div className="mt-5 d-flex justify-content-center">
             {user.loggedInStatus !== "LOGGED_IN" ? (
@@ -144,9 +141,9 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
                 Log In or Sign Up to request an appointment
               </h6>
             ) : (
-              <Button variant="success" size="lg" onClick={handleShow}>
-                Request an Appointment
-              </Button>
+              <button className="btn btn-success btn-lg rounded-pill" onClick={handleShow}> <FontAwesomeIcon icon={faCalendarCheck} className={"mr-2"} />Request an Appointment</button>
+
+              
             )}
           </div>
         </div>
@@ -203,23 +200,17 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
             <div className="form-group">
               <label htmlFor="time">Available hours</label>
-              <select
-                onChange={HandleForm}
-                id="time"
-                class="form-control"
-                value={time}
-                name="time"
-                required
-              >
-                <option value="" disabled selected>
-                  Select your option
-                </option>
-                {availables.map((available) => (
-                  <option key={available}>{available}</option>
-                ))}
+              <select onChange={HandleForm} id="time" class="form-control" value={time} name="time"
+                required>
+                   <option value="" disabled selected>Select your option</option>
+                  {availables.map((available)=>(
+                    <option key={available}>{available}</option>
+                  ))}
+                
               </select>
             </div>
 
+           
             {error ? (
               <div className="alert alert-warning" role="alert">
                 A field is empty!
@@ -240,9 +231,10 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   );
 };
 
+
 ServiceShow.propTypes = {
   user: PropTypes.object.isRequired,
   ResetSetService: PropTypes.func.isRequired,
-  serviceOpen: PropTypes.object.isRequired,
+  serviceOpen: PropTypes.object.isRequired
 };
 export default ServiceShow;

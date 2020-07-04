@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 const Service = ({service}) => {
   return (
-    <div className="mx-4" style={{width: "18rem"}}>
-      <img className="card-img-top rounded" style={{height: "18rem"}} src={service.image_url} alt="Logo_Pets_Care"/>
+    <div className="mx-4 d-flex justify-content-center flex-column" style={{width: "18rem"}}>
+      <div  className="mt-4" style={{ backgroundRepeat:"no-repeat",backgroundSize:"contain",backgroundPosition: "center",  height: "18rem", width: "18rem", backgroundImage: `url(${service.image_url})` }}></div>
       <div className="card-body">
         <h5 className="card-text text-center text-capitalize font-weight-bold">{service.name}</h5>
         <hr className="w-50" style={{borderBottom: "3px #b8c8cf dotted"}}/>
