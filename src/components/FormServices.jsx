@@ -188,8 +188,6 @@ const FormServices = ({ ButtonSelected }) => {
         }
       })
       .catch((error) => {});
-
-    ResetForm();
   };
 
   return (
