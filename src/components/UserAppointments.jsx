@@ -34,8 +34,8 @@ const UserAppointments = () => {
     return appoList.filter((item) => {
       let date = new Date(item.date);
       date.setHours(item.time.split("T")[1].split(":")[0]);
-      console.log("item",date);
-      console.log("new", new Date());
+      console.log("past item",date);
+      console.log("past new", new Date());
       return date < new Date();
     });
   };
@@ -44,6 +44,8 @@ const UserAppointments = () => {
     return appoList.filter((item) => {
       let date = new Date(item.date);
       date.setHours(item.time.split("T")[1].split(":")[0]);
+      console.log("future item",date);
+      console.log("future new", new Date());
       return date > new Date();
     });
   };
