@@ -33,8 +33,10 @@ const UserAppointments = () => {
   const pastAppointments = () => {
     return appoList.filter((item) => {
       let date = new Date(item.date);
+      console.log("past date server",date);
       date.setHours(item.time.split("T")[1].split(":")[0]);
-      console.log("past item",date);
+      console.log("time server",item.time.split("T")[1].split(":")[0])
+      console.log("past date plus + time",date);
       console.log("past new", new Date());
       return date < new Date();
     });
@@ -93,7 +95,7 @@ const UserAppointments = () => {
           </tr>
         </thead>
         <tbody>
-          {/* {(!appointmentPast? futureAppointments() : pastAppointments() )} */}
+
           {(!appointmentPast ? futureAppointments() : pastAppointments()).map(
             (appo) => (
               <tr key={appo.id}>
@@ -112,7 +114,6 @@ const UserAppointments = () => {
                   </td>
                 ) : null}
 
-                {/* <td><FontAwesomeIcon icon={faTrash} onClick={() => deleteServices(service.id)} className="fa-2x text-danger trashCan"/></td> */}
               </tr>
             )
           )}
