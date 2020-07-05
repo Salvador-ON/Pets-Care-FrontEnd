@@ -106,7 +106,7 @@ const Services = () => {
               : null}
           </div>
           <div className="paginationButCont">
-            {pagination < pages ? (
+            {pagination < pages-1 ? (
               <button
                 onClick={() => {
                   SetPagination(1);
