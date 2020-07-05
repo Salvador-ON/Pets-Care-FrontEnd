@@ -23,7 +23,7 @@
   background-color: #101e42;
   color: white;
   border: 0;
-  padding: 15px 35px;
+  padding: 15px 25px;
 }
 
 .btl {
@@ -48,9 +48,8 @@
   position: absolute;
   width: 83vw;
   right: 0;
-  bottom: 12vh;
+  bottom: 10vh;
 }
-
 
 .serviceContainer {
   cursor: pointer;
