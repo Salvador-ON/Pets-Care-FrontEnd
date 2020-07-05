@@ -90,7 +90,7 @@ const Services = () => {
           <h3 className="ServiceSubTile text-center">
             Check the differents services tha we offer.
           </h3>
-          <div className="ServicesDisplay mt-3 d-flex justify-content-center">
+          <div className="ServicesDisplay mt-3 d-flex justify-content-between">
             {serviceList.length > 0
               ? serviceList[pagination].map((service) => (
                   <div
