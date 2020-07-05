@@ -65,7 +65,7 @@ Also you can download the project from this [link](https://github.com/Salvador-O
 
 Before running the app you also need to download the Ruby on Rails [Back End application](https://github.com/Salvador-ON/Pets-Care-BackEnd-Api).
 
-Also you need to set up all the urls to your localhost direction and the port of your Back End.
+Also you need to change the domain of all the urls to http://localhost:3000
 
 To start the app. You need to have installed node.js and npm. [Check here](https://www.npmjs.com/get-npm)
 
