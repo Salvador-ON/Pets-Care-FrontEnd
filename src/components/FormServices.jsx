@@ -69,28 +69,6 @@ const FormServices = ({ ButtonSelected }) => {
     });
   };
 
-  const ResetForm = () => {
-    useUserForm({
-      name: "",
-      description: "",
-      price: "",
-      image_url: "",
-    });
-    useUserCheckForm({
-      "09:00": false,
-      "10:00": false,
-      "11:00": false,
-      "12:00": false,
-      "13:00": false,
-      "14:00": false,
-      "15:00": false,
-      "16:00": false,
-      "17:00": false,
-      "18:00": false,
-      "19:00": false,
-    });
-  };
-
   const { name, description, price } = userForm;
   const hours = [
     "09:00",
