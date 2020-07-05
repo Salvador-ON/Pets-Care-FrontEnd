@@ -70,7 +70,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
     axios
       .post(
-        "http://localhost:3001/appointments",
+        "https://pets-care-api.herokuapp.com/appointments",
         {
           appointment: {
             date: date,
@@ -97,7 +97,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   const getAppointments = (valueDate) => {
     axios
       .get(
-        "http://localhost:3001/availables?service_id=" +
+        "https://pets-care-api.herokuapp.com/availables?service_id=" +
           serviceOpen.data.id +
           "&date=" +
           valueDate,
