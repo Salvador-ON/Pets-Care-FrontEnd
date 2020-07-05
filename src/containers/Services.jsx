@@ -94,7 +94,7 @@ const Services = () => {
             {serviceList.length > 0
               ? serviceList[pagination].map((service) => (
                   <div
-                    className="serviceContainer"
+                    className="serviceContainer mx-2"
                     onClick={() => {
                       ActivateService(service);
                     }}
