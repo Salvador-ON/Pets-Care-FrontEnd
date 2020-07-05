@@ -14,7 +14,7 @@ const Landing = () => {
       <h1 className=" mb-2 text-white LandingTitle text-center">Taking care of your loved ones.</h1>
       <div className="mt-5 mb-1 mt-md-5 mt-lg-4 pb-3 mx-auto text-center">
       <Link to='/services'>
-        <span type="button" className="btn btn-light rounded-pill btn-lg">Services</span>
+        <span type="button" data-testid="ServiceButton" className="btn btn-light rounded-pill btn-lg">Services</span>
       </Link>
       </div>
     </div>

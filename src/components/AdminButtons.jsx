@@ -7,18 +7,18 @@ const AdminButtons = ({ButtonSelected}) => {
   
   return (
     <div className="d-flex mt-3 justify-content-around">
-      <button type="button" className="btn btn-success btn-lg px-4" onClick={() => {ButtonSelected("aps")}}>Appointments</button>
+      <button data-testid="appoints" type="button" className="btn btn-success btn-lg px-4" onClick={() => {ButtonSelected("aps")}}>Appointments</button>
 
       { user.user.role === "admin" ? 
       <React.Fragment>
-        <button type="button" className="btn btn-info btn-lg px-4" onClick={() => {ButtonSelected("ser")}}>Services</button> 
-        <button type="button" className="btn btn-warning btn-lg px-4" onClick={() => {ButtonSelected("ads")}}>Add Services</button> 
+        <button type="button" data-testid="ServiceAdmin" className="btn btn-info btn-lg px-4" onClick={() => {ButtonSelected("ser")}}>Services</button> 
+        <button type="button" data-testid="ServiceAdd" className="btn btn-warning btn-lg px-4" onClick={() => {ButtonSelected("ads")}}>Add Services</button> 
       </React.Fragment>
       : null}
       
       
 
-      <button type="button" className="btn btn-secondary btn-lg px-4" onClick={() => {ButtonSelected("map")}}>My Appointments</button>
+      <button type="button" data-testid="Mappoints" className="btn btn-secondary btn-lg px-4" onClick={() => {ButtonSelected("map")}}>My Appointments</button>
     </div>
     );
 }

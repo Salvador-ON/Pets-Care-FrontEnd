@@ -175,6 +175,7 @@ const Registration = () => {
 
             <div>
               <button
+              data-testid="SubmitSignButton"
                 type="submit"
                 className="btnSubmit rounded-pill py-1 px-3 mr-3"
               >

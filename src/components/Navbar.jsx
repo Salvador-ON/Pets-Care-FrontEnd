@@ -55,6 +55,7 @@ const NavBar = ({ option }) => {
 
         {user.loggedInStatus === "LOGGED_IN" ? (
           <Link
+            data-testid="dashboard"
             className="navLinksItem rounded-left my-1"
             style={
               option === "dashboard"
@@ -69,6 +70,7 @@ const NavBar = ({ option }) => {
 
         {user.loggedInStatus !== "LOGGED_IN" ? (
           <Link
+            data-testid="signup"
             className="navLinksItem rounded-left my-1"
             style={
               option === "signup"
@@ -81,8 +83,9 @@ const NavBar = ({ option }) => {
           </Link>
         ) : null}
 
-        {user.loggedInStatus !== "LOGGED_IN" ? (
+        {user.loggedInStatus !== "user" ? (
           <Link
+            data-testid="signin"
             className="navLinksItem rounded-left my-1"
             style={
               option === "login"
@@ -103,8 +106,6 @@ const NavBar = ({ option }) => {
             Log Out
           </span>
         ) : null}
-
-        {/* style={ option === "signup" ? {background: "#101e42", color: "#fff"} : {background: "#fff", color: "#101e42"}} */}
       </div>
 
       <div className="socialCont d-flex justify-content-around">

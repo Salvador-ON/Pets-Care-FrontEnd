@@ -30,7 +30,7 @@ const HidenNav = () => {
       </Link>
 
       {user.loggedInStatus === "LOGGED_IN" ? (
-        <Link className="my-2 butt" to="/dashboard">
+        <Link data-testid="HidenDash" className="my-2 butt" to="/dashboard">
           Dashboard
         </Link>
       ) : null}
