@@ -13,7 +13,7 @@ import ServiceShow from "../components/ServiceShow";
 const Services = () => {
   const user = useSelector((state) => state.loggedInStatus);
   const [serviceList, useServiceList] = React.useState([]);
-  const [pagination, usePagination] = React.useState(0);
+  const [pagination, usePagination] = React.useState(1);
   const [pages, usePages] = React.useState(0);
 
   const [serviceOpen, useServiceOpen] = React.useState({
