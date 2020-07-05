@@ -32,7 +32,7 @@ const UserAppointments = () => {
 
   const pastAppointments = () => {
     return appoList.filter((item) => {
-      let date = new Date(item.date);
+      let date = new Date((item.date).replace(/-/g, '\/'));
       console.log("past date server",date);
       date.setHours(item.time.split("T")[1].split(":")[0]);
       console.log("time server",item.time.split("T")[1].split(":")[0])
@@ -44,7 +44,7 @@ const UserAppointments = () => {
 
   const futureAppointments = () => {
     return appoList.filter((item) => {
-      let date = new Date(item.date);
+      let date = new Date((item.date).replace(/-/g, '\/'));
       date.setHours(item.time.split("T")[1].split(":")[0]);
       console.log("future itema",date);
       console.log("future new", new Date());
