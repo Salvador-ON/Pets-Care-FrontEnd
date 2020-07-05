@@ -67,5 +67,6 @@
 }
 
 .ServicesDisplay{
-  width: 83vw;
+  width: 81vw;
+  margin-left: -2vw;
 }
