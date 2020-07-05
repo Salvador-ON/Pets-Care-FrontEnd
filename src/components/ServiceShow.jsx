@@ -119,8 +119,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   return (
     <div className="float-right ServicesContainer">
       <div className="d-flex justify-content-center imageShow">
-        <div className="col-7 mx-2 d-flex justify-content-center pt-3">
-          <div  className="mt-4" style={{ backgroundRepeat:"no-repeat",backgroundSize:"contain", backgroundPosition: "center",  height: "80vh", width: "80vh", backgroundImage: `url(${serviceOpen.data.image_url})` }}>
+        <div className="col-7 mx-2 d-flex justify-content-center">
+          <div  style={{ backgroundRepeat:"no-repeat",backgroundSize:"contain", backgroundPosition: "center",  height: "80vh", width: "80vh", backgroundImage: `url(${serviceOpen.data.image_url})` }}>
           </div>
           
         </div>
