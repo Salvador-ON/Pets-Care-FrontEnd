@@ -50,9 +50,9 @@ const App = () => {
           <Route exact path={"/"} component={Landing} />
           <Route exact path={"/services"} component={Services} />
           <Route exact path={"/dashboard"} component={(user.loggedInStatus === "LOGGED_IN" ?  Dashboard : Login )} />
-          <Route exact path={"/login"} component={Login} />
-          <Route exact path={"/signup"} component={Registration} />
-          <Route exact path={"/adminsignup"} component={AdminRegistration} />
+          <Route exact path={"/login"} component={(user.loggedInStatus === "NOT_LOGGED_IN" ?  Login : Dashboard )} />
+          <Route exact path={"/signup"} component={(user.loggedInStatus === "NOT_LOGGED_IN" ?  Registration : Dashboard )} />
+          <Route exact path={"/adminsignup"} component={(user.loggedInStatus === "NOT_LOGGED_IN" ?  AdminRegistration : Dashboard )} />
         </Switch>
       </BrowserRouter>
     </div>
