@@ -37,11 +37,7 @@ const Dashboard = () => {
       {selectedButton === "ser" ? <ServicesList/> : null}
       {selectedButton === "aps" ? <AppointmentsEmployes/> : null}
       {selectedButton === "map" || user.user.role === "user"  ? <UserAppointments/>: null}
-      {/* <EmployeButtons/>
-      <ClientButtons/> */}
-       {/* <h1>Dashboard</h1>
-        <FormArticles userID={user.user.id} />
-        <Articles /> */}
+
       </div> 
     </div>
   );
