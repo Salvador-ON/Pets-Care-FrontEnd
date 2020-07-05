@@ -49,7 +49,7 @@ const App = () => {
         <Switch>
           <Route exact path={"/"} component={Landing} />
           <Route exact path={"/services"} component={Services} />
-          <Route exact path={"/dashboard"} component={(user.loggedInStatus === "NOT_LOGGED_IN" ? Login : Dashboard)} />
+          <Route exact path={"/dashboard"} component={(user.loggedInStatus === "LOGGED_IN" ?  Dashboard : Login )} />
           <Route exact path={"/login"} component={Login} />
           <Route exact path={"/signup"} component={Registration} />
           <Route exact path={"/adminsignup"} component={AdminRegistration} />
