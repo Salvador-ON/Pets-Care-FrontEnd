@@ -171,7 +171,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={HandleSubmit} className="w-50">
+          <form onSubmit={HandleSubmit} className="w-100">
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Pet name</label>
               <input
