@@ -169,7 +169,7 @@ const FormServices = ({ ButtonSelected }) => {
   };
 
   return (
-    <div className="w-50 ml-3">
+    <div className="w-75 ml-3">
       <h3 className="DashboardSubTile mt-2">New Services</h3>
 
       <form onSubmit={HandleSubmit}>
