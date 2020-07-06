@@ -169,7 +169,7 @@ const FormServices = ({ ButtonSelected }) => {
   };
 
   return (
-    <div className="w-50 ml-3">
+    <div className="w-75 ml-3">
       <h3 className="DashboardSubTile mt-2">New Services</h3>
 
       <form onSubmit={HandleSubmit}>
@@ -224,7 +224,7 @@ const FormServices = ({ ButtonSelected }) => {
             <button
               type="button"
               onClick={handleUpdate}
-              className="btnSubmit rounded-pill py-1 px-3 mr-3"
+              className="btnSubmit rounded-pill py-1 px-3 ml-2"
             >
               Upload
             </button>

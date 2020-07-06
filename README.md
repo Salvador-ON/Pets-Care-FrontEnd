@@ -1,5 +1,6 @@
 # Pets-Care-FrontEnd
 
+- This web App was create for tablets resolution 1024 x 768 px,
 - This Web App was built with React and Redux. 
 - This is the Front End App of the Vet Care Medical Center.
 - All the users can create new appointments in the differents services for their pets.
@@ -9,6 +10,14 @@
 - The Admin Sign Up route is hidden for only Admins and Employes users "/adminsignup".
 - Each type of user have a different Dashboards.
 - The Front End Comunicate to the Back End Server.
+
+## Future Improvements
+- Responsive Resolutions.
+- Native App. 
+
+## App Demo Use
+
+![](./screenshots/demo-show.gif)
 
 ## ScreenShots
 
@@ -75,9 +84,6 @@ Then go to the folder at the terminal an run
 npm start
 ```
 
-## App Demo Use
-
-![](./assets/App-use.gif)
 
 ## Author
 
@@ -94,7 +100,8 @@ npm start
 - Redux.
 - JavaScript.
 - Bootstrap.
-- Rails API (Back End)
+- Rails API (Back End).
+- Google Firebase Storage.
 
 ## Setup
 

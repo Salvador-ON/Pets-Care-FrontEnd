@@ -95,7 +95,7 @@
 }
 
 @media only screen
-  and (min-device-width: 1024px)
+  and (min-device-width: 1025px)
   and (max-device-width: 1224px) {
   .LogoImage {
     background: url("../assets/logosmall.png");
@@ -105,6 +105,7 @@
     width: 40vw;
     height: 10vw;
     margin: 0 auto;
+    margin-top: 5vh;
   }
 
   .DogVetImage {
