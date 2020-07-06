@@ -10,6 +10,8 @@ import {
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import ServiceShow from "../components/ServiceShow";
+import HidenNav from '../components/HidenNav';
+
 const Services = () => {
   const user = useSelector((state) => state.loggedInStatus);
   const [serviceList, useServiceList] = React.useState([]);
@@ -83,9 +85,11 @@ const Services = () => {
 
   return (
     <div>
+      <div className="d-sm-none"><HidenNav/></div>
+      
       <NavBar option={"services"} />
       {!serviceOpen.status ? (
-        <div className="float-right ServicesContainer">
+        <div className="float-none float-sm-right ServicesContainer">
           <h1 className="ServiceTile text-center">Our Services</h1>
           <h3 className="ServiceSubTile text-center">
             Check the differents services tha we offer.
