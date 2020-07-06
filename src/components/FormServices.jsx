@@ -224,7 +224,7 @@ const FormServices = ({ ButtonSelected }) => {
             <button
               type="button"
               onClick={handleUpdate}
-              className="btnSubmit rounded-pill py-1 px-3 ml-3"
+              className="btnSubmit rounded-pill py-1 px-3 ml-2"
             >
               Upload
             </button>
