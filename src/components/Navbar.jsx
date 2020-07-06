@@ -83,7 +83,7 @@ const NavBar = ({ option }) => {
           </Link>
         ) : null}
 
-        {user.loggedInStatus !== "user" ? (
+        {user.loggedInStatus !== "LOGGED_IN" ? (
           <Link
             data-testid="signin"
             className="navLinksItem rounded-left my-1"
