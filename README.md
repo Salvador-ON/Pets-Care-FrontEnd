@@ -100,8 +100,8 @@ npm start
 - Redux.
 - JavaScript.
 - Bootstrap.
-- Rails API (Back End)
-- Google Firebase Storage
+- Rails API (Back End).
+- Google Firebase Storage.
 
 ## Setup
 
