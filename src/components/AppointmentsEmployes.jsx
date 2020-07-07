@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 
 const AppointmentsEmployes = () => {
   const [serviceList, useServiceList] = React.useState([]);
@@ -20,10 +20,7 @@ const AppointmentsEmployes = () => {
   };
 
   const getAppointments = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/dashboard?date=" + dateSearch, {
-        withCredentials: true,
-      })
+    axiosCalls.ApposDashboard(dateSearch)
       .then((response) => {
         SetServiceList(response.data.data_appointments);
       })
