@@ -24,10 +24,10 @@ const futureAppointments = appoList => appoList.filter(item => {
 });
 
 const tomorrowDate = () => {
-  const my_date = new Date();  
-  const tomorrow_date = my_date .getFullYear() + "-" + (my_date .getMonth()+1) + "-" +(my_date .getDate()+1)  ;
-  return tomorrow_date
-}
+  const myDate = new Date();
+  const tomorrowDate = `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate() + 1}`;
+  return tomorrowDate;
+};
 
 const utilities = {
   chunkArray,
