@@ -20,7 +20,7 @@ const ServicesList = () => {
   };
 
   const deleteServices = (value) => {
-    deleteService(value)
+    axiosCalls.deleteService(value)
       .then((response) => {
         getServices();
       })
