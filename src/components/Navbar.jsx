@@ -66,7 +66,8 @@ const NavBar = ({ option }) => {
         ) : null}
 
         {user.loggedInStatus !== "LOGGED_IN" ? (
-          <Link
+          <React.Fragment>
+            <Link
             data-testid="signup"
             className="navLinksItem rounded-left my-1"
             style={
@@ -78,9 +79,6 @@ const NavBar = ({ option }) => {
           >
             Sign Up
           </Link>
-        ) : null}
-
-        {user.loggedInStatus !== "LOGGED_IN" ? (
           <Link
             data-testid="signin"
             className="navLinksItem rounded-left my-1"
@@ -93,7 +91,10 @@ const NavBar = ({ option }) => {
           >
             Log In
           </Link>
-        ) : null}
+        
+          </React.Fragment>
+          ) : null}
+
 
         {user.loggedInStatus === "LOGGED_IN" ? (
           <span

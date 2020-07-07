@@ -193,6 +193,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
                 name="date"
                 value={date}
                 required
+                min={new Date()}
               />
             </div>
 
