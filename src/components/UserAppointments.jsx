@@ -28,22 +28,6 @@ const UserAppointments = () => {
     getAppointments();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const pastAppointments = () => {
-    return appoList.filter((item) => {
-      let date = new Date(item.date.replace(/-/g, "/")); // eslint-disable-line no-useless-escape
-      date.setHours(item.time.split("T")[1].split(":")[0]);
-      return date < new Date();
-    });
-  };
-
-  const futureAppointments = () => {
-    return appoList.filter((item) => {
-      let date = new Date(item.date.replace(/-/g, "/")); // eslint-disable-line no-useless-escape
-      date.setHours(item.time.split("T")[1].split(":")[0]);
-      return date > new Date();
-    });
-  };
-
   const handleForm = (e) => {
     SetAppointmenstPast(e.target.checked);
   };
