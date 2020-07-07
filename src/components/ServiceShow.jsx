@@ -171,12 +171,12 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
         <Modal.Body>
           <form onSubmit={HandleSubmit} className="w-100">
             <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Pet name</label>
+              <label htmlFor="petname">Pet name</label>
               <input
                 onChange={HandleForm}
                 type="text"
                 className="form-control"
-                id="exampleInputEmail1"
+                id="petname"
                 aria-describedby="emailHelp"
                 name="pet_name"
                 value={pet_name}
@@ -184,12 +184,12 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Date</label>
+              <label htmlFor="date">Date</label>
               <input
                 onChange={handleDate}
                 type="date"
                 className="form-control"
-                id="password"
+                id="date"
                 name="date"
                 value={date}
                 required
