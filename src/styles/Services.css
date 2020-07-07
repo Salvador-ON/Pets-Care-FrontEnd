@@ -1,7 +1,6 @@
 .ServicesContainer {
   width: 100vw;
   height: 100vh;
-  margin-top: 7vh;
 }
 
 .ServiceTile {
@@ -49,7 +48,7 @@
   position: absolute;
   width: 83vw;
   right: 0;
-  bottom: 10vh;
+  bottom: 5vh;
 }
 
 .serviceContainer {
