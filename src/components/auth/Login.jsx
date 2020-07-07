@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../../services/axiosCalls";
 import NavBar from "../Navbar";
 import Error from "../Error";
 import "../../styles/Login.css";
@@ -46,17 +46,7 @@ const Registration = () => {
       return;
     }
 
-    axios
-      .post(
-        "https://pets-care-api.herokuapp.com/signin",
-        {
-          user: {
-            email: email,
-            password: password,
-          },
-        },
-        { withCredentials: true }
-      )
+    axiosCalls.logIn(email, password )
       .then((response) => {
         if (response.data.logged_in === true) {
           dispatch(LogIn(response.data.user));
@@ -108,7 +98,7 @@ const Registration = () => {
 
             <div>
               <button
-              data-testid="SubmitLoginButton"
+                data-testid="SubmitLoginButton"
                 type="submit"
                 className="btnSubmit rounded-pill py-1 px-3 mr-3"
               >

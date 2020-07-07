@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import NavBar from "../components/Navbar";
 import "../styles/Services.css";
 import { useSelector } from "react-redux";
@@ -70,10 +70,7 @@ const Services = () => {
   };
 
   const getServices = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/services", {
-        withCredentials: true,
-      })
+    axiosCalls.showServices()
       .then((response) => {
         SetServiceList(chunkArray(response.data.services, 3));
         SetPages(Math.ceil((response.data.services.length - 1) / 3));

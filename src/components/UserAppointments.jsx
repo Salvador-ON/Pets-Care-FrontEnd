@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserAppointments.css";
@@ -16,10 +16,7 @@ const UserAppointments = () => {
   };
 
   const getAppointments = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/appointments", {
-        withCredentials: true,
-      })
+    axiosCalls.myAppointments()
       .then((response) => {
         SetAppoList(response.data.appointments);
       })
@@ -32,7 +29,7 @@ const UserAppointments = () => {
 
   const pastAppointments = () => {
     return appoList.filter((item) => {
-      let date = new Date((item.date).replace(/-/g, '\/'));// eslint-disable-line no-useless-escape
+      let date = new Date(item.date.replace(/-/g, "/")); // eslint-disable-line no-useless-escape
       date.setHours(item.time.split("T")[1].split(":")[0]);
       return date < new Date();
     });
@@ -40,7 +37,7 @@ const UserAppointments = () => {
 
   const futureAppointments = () => {
     return appoList.filter((item) => {
-      let date = new Date((item.date).replace(/-/g, '\/'));// eslint-disable-line no-useless-escape
+      let date = new Date(item.date.replace(/-/g, "/")); // eslint-disable-line no-useless-escape
       date.setHours(item.time.split("T")[1].split(":")[0]);
       return date > new Date();
     });
@@ -51,10 +48,7 @@ const UserAppointments = () => {
   };
 
   const deleteAppointment = (value) => {
-    axios
-      .delete("https://pets-care-api.herokuapp.com/appointments/" + value, {
-        withCredentials: true,
-      })
+    axiosCalls.deleteAppoinment(value)
       .then((response) => {
         getAppointments();
       })
@@ -89,7 +83,6 @@ const UserAppointments = () => {
           </tr>
         </thead>
         <tbody>
-
           {(!appointmentPast ? futureAppointments() : pastAppointments()).map(
             (appo) => (
               <tr key={appo.id}>
@@ -107,7 +100,6 @@ const UserAppointments = () => {
                     />
                   </td>
                 ) : null}
-
               </tr>
             )
           )}

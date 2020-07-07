@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Dashboard from "../components/Dashboard";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import "bootstrap/dist/css/bootstrap.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,10 +19,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   const checkLoginSatus = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/logged_in", {
-        withCredentials: true,
-      })
+    axiosCalls.checkLogged()
       .then((response) => {
         if (
           response.data.logged_in &&

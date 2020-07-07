@@ -2,7 +2,7 @@ import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import { LogOut } from "../actions/index.js";
 import "../styles/Landing.css";
 
@@ -11,10 +11,7 @@ const HidenNav = () => {
   const dispatch = useDispatch();
   let history = useHistory();
   const handleLogOut = () => {
-    axios
-      .delete("https://pets-care-api.herokuapp.com/logout", {
-        withCredentials: true,
-      })
+    axiosCalls.Logout()
       .then((response) => {
         if (response.data.logged_out) {
           dispatch(LogOut());

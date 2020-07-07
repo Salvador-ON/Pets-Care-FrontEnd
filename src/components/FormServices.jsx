@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import Error from "./Error";
 import { storage } from "./firebaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -146,20 +146,7 @@ const FormServices = ({ ButtonSelected }) => {
 
     SetError(false, "");
 
-    axios
-      .post(
-        "https://pets-care-api.herokuapp.com/services",
-        {
-          service: {
-            name: name,
-            description: description,
-            price: price,
-            image_url: url,
-            schedule: shedules.toString(),
-          },
-        },
-        { withCredentials: true }
-      )
+    axiosCalls.FormServices(name, description, price, url, shedules)
       .then((response) => {
         if (response.data.status === "created") {
           ButtonSelected("ser");

@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../../services/axiosCalls";
 import NavBar from "../Navbar";
 import Error from "../Error";
 import "../../styles/Registration.css";
@@ -63,21 +63,7 @@ const Registration = () => {
       SetError(false, "");
     }
 
-    axios
-      .post(
-        "https://pets-care-api.herokuapp.com/signup",
-        {
-          user: {
-            email: email,
-            password: password,
-            password_confirmation: passwordConfirmation,
-            phone: phone,
-            name: name,
-            token: "",
-          },
-        },
-        { withCredentials: true }
-      )
+    axiosCalls.signUp(email, password, passwordConfirmation, phone, name)
       .then((response) => {
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
