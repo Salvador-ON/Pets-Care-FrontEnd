@@ -26,10 +26,9 @@ const Dashboard = () => {
       <h1 className="DashboardTile text-center">Dashboard</h1>
       {user.loggedInStatus === "NOT_LOGGED_IN" ? (
           <h3  className="DashboardSubTile text-center">You are not Logged In </h3>
-        ) : null}
-        {user.loggedInStatus === "LOGGED_IN" ? (
+        ) : <React.Fragment>
           <h3 className="DashboardSubTile text-center">Welcome <span className="text-capitalize">{user.user.name}</span> </h3>
-        ) : null}
+          </React.Fragment>}
 
       { user.user.role === "admin" || user.user.role === "employe" ? <AdminButtons ButtonSelected={ButtonSelected}/> : null}
       
