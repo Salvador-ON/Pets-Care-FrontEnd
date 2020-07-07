@@ -24,9 +24,16 @@ const futureAppointments = appoList => appoList.filter(item => {
 });
 
 const tomorrowDate = () => {
-  const myDate = new Date();
-  const tomorrowDate = `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate() + 1}`;
-  return tomorrowDate;
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  let month = `${d.getMonth() + 1}`;
+  let day = `${d.getDate()}`;
+  const year = d.getFullYear();
+
+  if (month.length < 2) { month = `0${month}`; }
+  if (day.length < 2) day = `0${day}`;
+
+  return [year, month, day].join('-');
 };
 
 const utilities = {
