@@ -8,6 +8,7 @@ import {
   faCalendarCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import utilities from "../utils/utilities";
 
 const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
   let history = useHistory();
@@ -193,7 +194,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
                 name="date"
                 value={date}
                 required
-                min={new Date()}
+                min={utilities.tomorrowDate()}
               />
             </div>
 
