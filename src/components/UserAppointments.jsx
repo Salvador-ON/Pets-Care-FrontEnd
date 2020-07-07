@@ -1,5 +1,6 @@
 import React from "react";
 import axiosCalls from "../services/axiosCalls";
+import utilities from "../utils/utilities"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserAppointments.css";
@@ -83,7 +84,7 @@ const UserAppointments = () => {
           </tr>
         </thead>
         <tbody>
-          {(!appointmentPast ? futureAppointments() : pastAppointments()).map(
+          {(!appointmentPast ? utilities.futureAppointments(appoList) : utilities.pastAppointments(appoList)).map(
             (appo) => (
               <tr key={appo.id}>
                 <td>{appo.id}</td>
