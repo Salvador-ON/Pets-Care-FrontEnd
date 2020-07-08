@@ -127,7 +127,7 @@ const signUp = (email, password, passwordConfirmation, phone, name) => (
           email,
           password,
           password_confirmation: passwordConfirmation,
-          phone,
+          phone: phone.replace(/-/g, ""),
           name,
           token: '',
         },
