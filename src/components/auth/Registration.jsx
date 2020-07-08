@@ -13,7 +13,7 @@ const Registration = () => {
 
   const dispatch = useDispatch();
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     name: "",
     email: "",
     phone: "",
@@ -21,20 +21,20 @@ const Registration = () => {
     passwordConfirmation: "",
   });
 
-  const [error, useError] = React.useState({
+  const [error, setError] = React.useState({
     value: false,
     data: "",
   });
 
   const SetError = (value, data) => {
-    useError({
+    setError({
       value: value,
       data: data,
     });
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });

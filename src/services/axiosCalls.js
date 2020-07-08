@@ -1,177 +1,14 @@
-// import axios from 'axios';
-
-// const ApposDashboard = dateSearch => (
-//   axios.get(`https://pets-care-api.herokuapp.com/dashboard?date=${dateSearch}`, {
-//     withCredentials: true,
-//   }));
-
-// const FormServices = (name, description, price, url, shedules) => (
-//   axios
-//     .post(
-//       'https://pets-care-api.herokuapp.com/services',
-//       {
-//         service: {
-//           name,
-//           description,
-//           price,
-//           image_url: url,
-//           schedule: shedules.toString(),
-//         },
-//       },
-//       { withCredentials: true },
-//     )
-// );
-
-// const Logout = () => (
-//   axios
-//     .delete('https://pets-care-api.herokuapp.com/logout', {
-//       withCredentials: true,
-//     })
-// );
-
-// const FormAppoinments = (date, time, serviceOpen, petName) => (
-//   axios
-//     .post(
-//       'https://pets-care-api.herokuapp.com/appointments',
-//       {
-//         appointment: {
-//           date,
-//           time,
-//           service_id: serviceOpen.data.id,
-//           pet_name: petName,
-//         },
-//       },
-//       { withCredentials: true },
-//     )
-// );
-
-// const AvailableHours = (serviceOpen, valueDate) => (
-//   axios
-//     .get(
-//       `https://pets-care-api.herokuapp.com/availables?service_id=${
-//         serviceOpen.data.id
-//       }&date=${
-//         valueDate}`,
-//       {
-//         withCredentials: true,
-//       },
-//     )
-// );
-
-// const showServices = () => (
-//   axios
-//     .get('https://pets-care-api.herokuapp.com/services', {
-//       withCredentials: true,
-//     })
-// );
-
-// const deleteService = value => (
-//   axios
-//     .delete(`https://pets-care-api.herokuapp.com/services/${value}`, {
-//       withCredentials: true,
-//     })
-// );
-
-// const myAppointments = () => (
-//   axios
-//     .get('https://pets-care-api.herokuapp.com/appointments', {
-//       withCredentials: true,
-//     })
-// );
-
-// const deleteAppoinment = value => (
-//   axios
-//     .delete(`https://pets-care-api.herokuapp.com/appointments/${value}`, {
-//       withCredentials: true,
-//     })
-// );
-
-// const adminSignUp = (email, password, passwordConfirmation, phone, name, token) => (
-//   axios
-//     .post(
-//       'https://pets-care-api.herokuapp.com/signup',
-//       {
-//         user: {
-//           email,
-//           password,
-//           password_confirmation: passwordConfirmation,
-//           phone: phone.replace(/-/g, ''),
-//           name,
-//           token,
-//         },
-//       },
-//       { withCredentials: true },
-//     )
-// );
-
-// const logIn = (email, password) => (
-//   axios
-//     .post(
-//       'https://pets-care-api.herokuapp.com/signin',
-//       {
-//         user: {
-//           email,
-//           password,
-//         },
-//       },
-//       { withCredentials: true },
-//     )
-// );
-
-// const signUp = (email, password, passwordConfirmation, phone, name) => (
-//   axios
-//     .post(
-//       'https://pets-care-api.herokuapp.com/signup',
-//       {
-//         user: {
-//           email,
-//           password,
-//           password_confirmation: passwordConfirmation,
-//           phone: phone.replace(/-/g, ''),
-//           name,
-//           token: '',
-//         },
-//       },
-//       { withCredentials: true },
-//     )
-// );
-
-// const checkLogged = () => (
-//   axios
-//     .get('https://pets-care-api.herokuapp.com/logged_in', {
-//       withCredentials: true,
-//     })
-// );
-
-// const axiosCalls = {
-//   ApposDashboard,
-//   FormServices,
-//   Logout,
-//   FormAppoinments,
-//   AvailableHours,
-//   showServices,
-//   deleteService,
-//   myAppointments,
-//   deleteAppoinment,
-//   adminSignUp,
-//   logIn,
-//   signUp,
-//   checkLogged,
-// };
-
-// export default axiosCalls;
-
 import axios from 'axios';
 
 const ApposDashboard = dateSearch => (
-  axios.get(`http://localhost:3001/dashboard?date=${dateSearch}`, {
+  axios.get(`https://pets-care-api.herokuapp.com/dashboard?date=${dateSearch}`, {
     withCredentials: true,
   }));
 
 const FormServices = (name, description, price, url, shedules) => (
   axios
     .post(
-      'http://localhost:3001/services',
+      'https://pets-care-api.herokuapp.com/services',
       {
         service: {
           name,
@@ -187,7 +24,7 @@ const FormServices = (name, description, price, url, shedules) => (
 
 const Logout = () => (
   axios
-    .delete('http://localhost:3001/logout', {
+    .delete('https://pets-care-api.herokuapp.com/logout', {
       withCredentials: true,
     })
 );
@@ -195,7 +32,7 @@ const Logout = () => (
 const FormAppoinments = (date, time, serviceOpen, petName) => (
   axios
     .post(
-      'http://localhost:3001/appointments',
+      'https://pets-care-api.herokuapp.com/appointments',
       {
         appointment: {
           date,
@@ -211,7 +48,7 @@ const FormAppoinments = (date, time, serviceOpen, petName) => (
 const AvailableHours = (serviceOpen, valueDate) => (
   axios
     .get(
-      `http://localhost:3001/availables?service_id=${
+      `https://pets-care-api.herokuapp.com/availables?service_id=${
         serviceOpen.data.id
       }&date=${
         valueDate}`,
@@ -223,28 +60,28 @@ const AvailableHours = (serviceOpen, valueDate) => (
 
 const showServices = () => (
   axios
-    .get('http://localhost:3001/services', {
+    .get('https://pets-care-api.herokuapp.com/services', {
       withCredentials: true,
     })
 );
 
 const deleteService = value => (
   axios
-    .delete(`http://localhost:3001/services/${value}`, {
+    .delete(`https://pets-care-api.herokuapp.com/services/${value}`, {
       withCredentials: true,
     })
 );
 
 const myAppointments = () => (
   axios
-    .get('http://localhost:3001/appointments', {
+    .get('https://pets-care-api.herokuapp.com/appointments', {
       withCredentials: true,
     })
 );
 
 const deleteAppoinment = value => (
   axios
-    .delete(`http://localhost:3001/appointments/${value}`, {
+    .delete(`https://pets-care-api.herokuapp.com/appointments/${value}`, {
       withCredentials: true,
     })
 );
@@ -252,7 +89,7 @@ const deleteAppoinment = value => (
 const adminSignUp = (email, password, passwordConfirmation, phone, name, token) => (
   axios
     .post(
-      'http://localhost:3001/signup',
+      'https://pets-care-api.herokuapp.com/signup',
       {
         user: {
           email,
@@ -270,7 +107,7 @@ const adminSignUp = (email, password, passwordConfirmation, phone, name, token) 
 const logIn = (email, password) => (
   axios
     .post(
-      'http://localhost:3001/signin',
+      'https://pets-care-api.herokuapp.com/signin',
       {
         user: {
           email,
@@ -284,7 +121,7 @@ const logIn = (email, password) => (
 const signUp = (email, password, passwordConfirmation, phone, name) => (
   axios
     .post(
-      'http://localhost:3001/signup',
+      'https://pets-care-api.herokuapp.com/signup',
       {
         user: {
           email,
@@ -301,7 +138,7 @@ const signUp = (email, password, passwordConfirmation, phone, name) => (
 
 const checkLogged = () => (
   axios
-    .get('http://localhost:3001/logged_in', {
+    .get('https://pets-care-api.herokuapp.com/logged_in', {
       withCredentials: true,
     })
 );
@@ -323,3 +160,166 @@ const axiosCalls = {
 };
 
 export default axiosCalls;
+
+// import axios from 'axios';
+
+// const ApposDashboard = dateSearch => (
+//   axios.get(`http://localhost:3001/dashboard?date=${dateSearch}`, {
+//     withCredentials: true,
+//   }));
+
+// const FormServices = (name, description, price, url, shedules) => (
+//   axios
+//     .post(
+//       'http://localhost:3001/services',
+//       {
+//         service: {
+//           name,
+//           description,
+//           price,
+//           image_url: url,
+//           schedule: shedules.toString(),
+//         },
+//       },
+//       { withCredentials: true },
+//     )
+// );
+
+// const Logout = () => (
+//   axios
+//     .delete('http://localhost:3001/logout', {
+//       withCredentials: true,
+//     })
+// );
+
+// const FormAppoinments = (date, time, serviceOpen, petName) => (
+//   axios
+//     .post(
+//       'http://localhost:3001/appointments',
+//       {
+//         appointment: {
+//           date,
+//           time,
+//           service_id: serviceOpen.data.id,
+//           pet_name: petName,
+//         },
+//       },
+//       { withCredentials: true },
+//     )
+// );
+
+// const AvailableHours = (serviceOpen, valueDate) => (
+//   axios
+//     .get(
+//       `http://localhost:3001/availables?service_id=${
+//         serviceOpen.data.id
+//       }&date=${
+//         valueDate}`,
+//       {
+//         withCredentials: true,
+//       },
+//     )
+// );
+
+// const showServices = () => (
+//   axios
+//     .get('http://localhost:3001/services', {
+//       withCredentials: true,
+//     })
+// );
+
+// const deleteService = value => (
+//   axios
+//     .delete(`http://localhost:3001/services/${value}`, {
+//       withCredentials: true,
+//     })
+// );
+
+// const myAppointments = () => (
+//   axios
+//     .get('http://localhost:3001/appointments', {
+//       withCredentials: true,
+//     })
+// );
+
+// const deleteAppoinment = value => (
+//   axios
+//     .delete(`http://localhost:3001/appointments/${value}`, {
+//       withCredentials: true,
+//     })
+// );
+
+// const adminSignUp = (email, password, passwordConfirmation, phone, name, token) => (
+//   axios
+//     .post(
+//       'http://localhost:3001/signup',
+//       {
+//         user: {
+//           email,
+//           password,
+//           password_confirmation: passwordConfirmation,
+//           phone: phone.replace(/-/g, ''),
+//           name,
+//           token,
+//         },
+//       },
+//       { withCredentials: true },
+//     )
+// );
+
+// const logIn = (email, password) => (
+//   axios
+//     .post(
+//       'http://localhost:3001/signin',
+//       {
+//         user: {
+//           email,
+//           password,
+//         },
+//       },
+//       { withCredentials: true },
+//     )
+// );
+
+// const signUp = (email, password, passwordConfirmation, phone, name) => (
+//   axios
+//     .post(
+//       'http://localhost:3001/signup',
+//       {
+//         user: {
+//           email,
+//           password,
+//           password_confirmation: passwordConfirmation,
+//           phone: phone.replace(/-/g, ''),
+//           name,
+//           token: '',
+//         },
+//       },
+//       { withCredentials: true },
+//     )
+// );
+
+// const checkLogged = () => (
+//   axios
+//     .get('http://localhost:3001/logged_in', {
+//       withCredentials: true,
+//     })
+// );
+
+// const axiosCalls = {
+//   ApposDashboard,
+//   FormServices,
+//   Logout,
+//   FormAppoinments,
+//   AvailableHours,
+//   showServices,
+//   deleteService,
+//   myAppointments,
+//   deleteAppoinment,
+//   adminSignUp,
+//   logIn,
+//   signUp,
+//   checkLogged,
+// };
+
+// export default axiosCalls;

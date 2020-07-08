@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ServicesList = () => {
-  const [serviceList, useServiceList] = React.useState([]);
+  const [serviceList, setServiceList] = React.useState([]);
 
   const SetServiceList = (data) => {
-    useServiceList(data);
+    setServiceList(data);
   };
 
   const getServices = () => {

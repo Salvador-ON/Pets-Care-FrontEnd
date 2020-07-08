@@ -7,14 +7,14 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 
 const FormServices = ({ ButtonSelected }) => {
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     name: "",
     description: "",
     price: "",
     image_url: "",
   });
 
-  const [image, useImage] = React.useState(null);
+  const [image, setImage] = React.useState(null);
   const [url, useUrl] = React.useState("");
   const [progress, useProgress] = React.useState(0);
   const [userCheckForm, useUserCheckForm] = React.useState({
@@ -31,13 +31,13 @@ const FormServices = ({ ButtonSelected }) => {
     "19:00": false,
   });
 
-  const [error, useError] = React.useState({
+  const [error, setError] = React.useState({
     value: false,
     data: "",
   });
 
   const SetImage = (data) => {
-    useImage(data);
+    setImage(data);
   };
 
   const SetUrl = (data) => {
@@ -49,14 +49,14 @@ const FormServices = ({ ButtonSelected }) => {
   };
 
   const SetError = (value, data) => {
-    useError({
+    setError({
       value: value,
       data: data,
     });
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });

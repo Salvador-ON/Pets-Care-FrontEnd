@@ -28,27 +28,27 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
     setShow(true);
   };
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     pet_name: "",
     date: "",
     time: "",
   });
 
-  const [error, useError] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   const SetError = (value) => {
-    useError(value);
+    setError(value);
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
   };
 
   const ResetForm = () => {
-    useUserForm({
+    setUserForm({
       pet_name: "",
       date: "",
       time: "",
