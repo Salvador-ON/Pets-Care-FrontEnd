@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../../services/axiosCalls";
 import NavBar from "../Navbar";
 import Error from "../Error";
 import "../../styles/Registration.css";
@@ -72,21 +72,7 @@ const Registration = () => {
       SetError(false, "");
     }
 
-    axios
-      .post(
-        "https://pets-care-api.herokuapp.com/signup",
-        {
-          user: {
-            email: email,
-            password: password,
-            password_confirmation: passwordConfirmation,
-            phone: phone,
-            name: name,
-            token: token,
-          },
-        },
-        { withCredentials: true }
-      )
+    axiosCalls.adminSignUp(email, password, passwordConfirmation, phone, name, token)
       .then((response) => {
         if (response.data.status === "created") {
           dispatch(LogIn(response.data.user));
@@ -143,7 +129,7 @@ const Registration = () => {
               <label htmlFor="phone">Phone</label>
               <input
                 onChange={HandleForm}
-                type="number"
+                type="tel"
                 className="form-control"
                 id="phone"
                 name="phone"

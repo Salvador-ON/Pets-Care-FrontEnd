@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import "../styles/ServiceList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -12,10 +12,7 @@ const ServicesList = () => {
   };
 
   const getServices = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/services", {
-        withCredentials: true,
-      })
+    axiosCalls.showServices()
       .then((response) => {
         SetServiceList(response.data.services);
       })
@@ -23,10 +20,7 @@ const ServicesList = () => {
   };
 
   const deleteServices = (value) => {
-    axios
-      .delete("https://pets-care-api.herokuapp.com/services/" + value, {
-        withCredentials: true,
-      })
+    axiosCalls.deleteService(value)
       .then((response) => {
         getServices();
       })

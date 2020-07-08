@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
+import utilities from "../utils/utilities"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserAppointments.css";
@@ -16,10 +17,7 @@ const UserAppointments = () => {
   };
 
   const getAppointments = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/appointments", {
-        withCredentials: true,
-      })
+    axiosCalls.myAppointments()
       .then((response) => {
         SetAppoList(response.data.appointments);
       })
@@ -30,31 +28,12 @@ const UserAppointments = () => {
     getAppointments();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const pastAppointments = () => {
-    return appoList.filter((item) => {
-      let date = new Date((item.date).replace(/-/g, '\/'));// eslint-disable-line no-useless-escape
-      date.setHours(item.time.split("T")[1].split(":")[0]);
-      return date < new Date();
-    });
-  };
-
-  const futureAppointments = () => {
-    return appoList.filter((item) => {
-      let date = new Date((item.date).replace(/-/g, '\/'));// eslint-disable-line no-useless-escape
-      date.setHours(item.time.split("T")[1].split(":")[0]);
-      return date > new Date();
-    });
-  };
-
   const handleForm = (e) => {
     SetAppointmenstPast(e.target.checked);
   };
 
   const deleteAppointment = (value) => {
-    axios
-      .delete("https://pets-care-api.herokuapp.com/appointments/" + value, {
-        withCredentials: true,
-      })
+    axiosCalls.deleteAppoinment(value)
       .then((response) => {
         getAppointments();
       })
@@ -89,8 +68,7 @@ const UserAppointments = () => {
           </tr>
         </thead>
         <tbody>
-
-          {(!appointmentPast ? futureAppointments() : pastAppointments()).map(
+          {(!appointmentPast ? utilities.futureAppointments(appoList) : utilities.pastAppointments(appoList)).map(
             (appo) => (
               <tr key={appo.id}>
                 <td>{appo.id}</td>
@@ -107,7 +85,6 @@ const UserAppointments = () => {
                     />
                   </td>
                 ) : null}
-
               </tr>
             )
           )}

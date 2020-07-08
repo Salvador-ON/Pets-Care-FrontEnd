@@ -1,9 +1,10 @@
 import React from "react";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import NavBar from "../components/Navbar";
 import "../styles/Services.css";
 import { useSelector } from "react-redux";
 import Service from "../components/Service";
+import utilities from "../utils/utilities"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -57,27 +58,10 @@ const Services = () => {
     SetServiceTrue(data);
   };
 
-  const chunkArray = (myArray, chunk_size) => {
-    let index = 0;
-    const arrayLength = myArray.length;
-    let tempArray = [];
-
-    for (index = 0; index < arrayLength; index += chunk_size) {
-      let myChunk = myArray.slice(index, index + chunk_size);
-      // Do something if you want with the group
-      tempArray.push(myChunk);
-    }
-
-    return tempArray;
-  };
-
   const getServices = () => {
-    axios
-      .get("https://pets-care-api.herokuapp.com/services", {
-        withCredentials: true,
-      })
+    axiosCalls.showServices()
       .then((response) => {
-        SetServiceList(chunkArray(response.data.services, 3));
+        SetServiceList(utilities.chunkArray(response.data.services, 3));
         SetPages(Math.ceil((response.data.services.length - 1) / 3));
       })
       .catch((error) => {});

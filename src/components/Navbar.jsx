@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { LogOut } from "../actions/index.js";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import axiosCalls from "../services/axiosCalls";
 import PropTypes from "prop-types";
 
 const NavBar = ({ option }) => {
@@ -19,10 +19,7 @@ const NavBar = ({ option }) => {
   const dispatch = useDispatch();
   let history = useHistory();
   const handleLogOut = () => {
-    axios
-      .delete("https://pets-care-api.herokuapp.com/logout", {
-        withCredentials: true,
-      })
+    axiosCalls.Logout()
       .then((response) => {
         if (response.data.logged_out) {
           dispatch(LogOut());
@@ -69,7 +66,8 @@ const NavBar = ({ option }) => {
         ) : null}
 
         {user.loggedInStatus !== "LOGGED_IN" ? (
-          <Link
+          <React.Fragment>
+            <Link
             data-testid="signup"
             className="navLinksItem rounded-left my-1"
             style={
@@ -81,9 +79,6 @@ const NavBar = ({ option }) => {
           >
             Sign Up
           </Link>
-        ) : null}
-
-        {user.loggedInStatus !== "LOGGED_IN" ? (
           <Link
             data-testid="signin"
             className="navLinksItem rounded-left my-1"
@@ -96,7 +91,10 @@ const NavBar = ({ option }) => {
           >
             Log In
           </Link>
-        ) : null}
+        
+          </React.Fragment>
+          ) : null}
+
 
         {user.loggedInStatus === "LOGGED_IN" ? (
           <span
