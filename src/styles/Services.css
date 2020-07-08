@@ -27,8 +27,7 @@
 }
 
 .btl {
-  border-top-right-radius: 25%;
-  border-bottom-right-radius: 25%;
+  border-radius: 25%;
 }
 
 .btl:focus {
@@ -36,8 +35,7 @@
 }
 
 .btr {
-  border-top-left-radius: 25%;
-  border-bottom-left-radius: 25%;
+  border-radius: 25%;
 }
 
 .btr:focus {
@@ -45,10 +43,8 @@
 }
 
 .paginationButCont {
-  position: absolute;
-  width: 83vw;
-  right: 0;
-  bottom: 5vh;
+  width: 90vw;
+  margin: 0 auto;
 }
 
 .serviceContainer {
@@ -68,6 +64,15 @@
 .ServicesDisplay {
   width: 81vw;
   margin-left: -2vw;
+}
+
+.serviceShowCont {
+  width: 78vw;
+}
+
+.imageContService {
+  height: 50vw;
+  width: 100%;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -122,6 +127,7 @@
     width: 83vw;
     right: 0;
     bottom: 10vh;
+    margin: 0;
   }
 
   .serviceContainer {
@@ -141,6 +147,15 @@
   .ServicesDisplay {
     width: 81vw;
     margin-left: -2vw;
+  }
+
+  .serviceShowCont {
+    width: 26vw;
+  }
+
+  .imageContService {
+    height: 26vw;
+    width: 26vw;
   }
 }
 
@@ -196,6 +211,7 @@
     width: 83vw;
     right: 0;
     bottom: 10vh;
+    margin: 0;
   }
 
   .serviceContainer {
@@ -215,6 +231,15 @@
   .ServicesDisplay {
     width: 81vw;
     margin-left: -2vw;
+  }
+
+  .serviceShowCont {
+    width: 26vw;
+  }
+
+  .imageContService {
+    height: 26vw;
+    width: 26vw;
   }
 }
 
@@ -270,6 +295,7 @@
     width: 83vw;
     right: 0;
     bottom: 10vh;
+    margin: 0;
   }
 
   .serviceContainer {
@@ -290,16 +316,25 @@
     width: 81vw;
     margin-left: -2vw;
   }
+
+  .serviceShowCont {
+    width: 26vw;
+  }
+
+  .imageContService {
+    height: 26vw;
+    width: 26vw;
+  }
 }
 
 @media only screen and (min-width: 1224px) {
   .ServicesContainer {
-    width: 81vw;
+    width: 82vw;
     height: 100vh;
   }
 
   .ServiceTile {
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-bottom: 0;
     color: #101e42 !important;
     font-family: "Roboto", sans-serif;
@@ -312,6 +347,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
+    margin-bottom: 0;
   }
 
   .buttonPagination {
@@ -322,8 +358,7 @@
   }
 
   .btl {
-    border-top-right-radius: 25%;
-    border-bottom-right-radius: 25%;
+    border-radius: 25%;
   }
 
   .btl:focus {
@@ -331,8 +366,7 @@
   }
 
   .btr {
-    border-top-left-radius: 25%;
-    border-bottom-left-radius: 25%;
+    border-radius: 25%;
   }
 
   .btr:focus {
@@ -341,9 +375,10 @@
 
   .paginationButCont {
     position: absolute;
-    width: 83vw;
-    right: 0;
-    bottom: 10vh;
+    width: 80vw;
+    right: 1vw;
+    bottom: 2vh;
+    margin: 0;
   }
 
   .serviceContainer {
@@ -362,6 +397,15 @@
 
   .ServicesDisplay {
     width: 81vw;
-    margin-left: -2vw;
+    margin-left: 0;
+  }
+
+  .serviceShowCont {
+    width: 26vw;
+  }
+
+  .imageContService {
+    height: 26vw;
+    width: 26vw;
   }
 }

@@ -15,9 +15,9 @@ import HidenNav from '../components/HidenNav';
 
 const Services = () => {
   const user = useSelector((state) => state.loggedInStatus);
-  const [serviceList, useServiceList] = React.useState([]);
-  const [pagination, usePagination] = React.useState(0);
-  const [pages, usePages] = React.useState(0);
+  const [serviceList, setServiceList] = React.useState([]);
+  const [pagination, setPagination] = React.useState(0);
+  const [pages, setPages] = React.useState(0);
 
   const [serviceOpen, useServiceOpen] = React.useState({
     status: false,
@@ -39,15 +39,15 @@ const Services = () => {
   };
 
   const SetPages = (value) => {
-    usePages(value);
+    setPages(value);
   };
 
   const SetPagination = (value) => {
-    usePagination(pagination + value);
+    setPagination(pagination + value);
   };
 
   const SetServiceList = (data) => {
-    useServiceList(data);
+    setServiceList(data);
   };
 
   React.useEffect(() => {
@@ -61,8 +61,10 @@ const Services = () => {
   const getServices = () => {
     axiosCalls.showServices()
       .then((response) => {
+        console.log(Math.ceil((response.data.services.length - 1) / 3));
+        
         SetServiceList(utilities.chunkArray(response.data.services, 3));
-        SetPages(Math.ceil((response.data.services.length - 1) / 3));
+        SetPages(Math.ceil((response.data.services.length) / 3));
       })
       .catch((error) => {});
   };
@@ -78,7 +80,7 @@ const Services = () => {
           <h3 className="ServiceSubTile text-center">
             Check the differents services tha we offer.
           </h3>
-          <div className="ServicesDisplay mt-3 d-flex justify-content-between">
+          <div className="ServicesDisplay mt-3 d-flex flex-md-row flex-column justify-content-center justify-content-sm-between mx-sm-0 mx-auto">
             {serviceList.length > 0
               ? serviceList[pagination].map((service) => (
                   <div
@@ -93,6 +95,13 @@ const Services = () => {
                 ))
               : null}
           </div>
+
+          {user.loggedInStatus !== "LOGGED_IN" ? (
+            <h6 className="mx-auto mx-sm-0  mt-4 mt-sm-0 text-center">
+              Log In or Sign Up to request an appointment
+            </h6>
+          ) : null}
+          
           <div className="paginationButCont">
             {pagination < pages-1 ? (
               <button
@@ -117,11 +126,7 @@ const Services = () => {
             ) : null}
           </div>
 
-          {user.loggedInStatus !== "LOGGED_IN" ? (
-            <h6 className="text-center mt-1">
-              Log In or Sign Up to request an appointment
-            </h6>
-          ) : null}
+          
         </div>
       ) : null}
 
