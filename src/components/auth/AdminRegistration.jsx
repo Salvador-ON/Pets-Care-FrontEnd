@@ -129,7 +129,7 @@ const Registration = () => {
               <label htmlFor="phone">Phone</label>
               <input
                 onChange={HandleForm}
-                type="number"
+                type="tel"
                 className="form-control"
                 id="phone"
                 name="phone"

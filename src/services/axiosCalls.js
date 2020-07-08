@@ -95,7 +95,7 @@ const adminSignUp = (email, password, passwordConfirmation, phone, name, token) 
           email,
           password,
           password_confirmation: passwordConfirmation,
-          phone,
+          phone: phone.replace(/-/g, ""),
           name,
           token,
         },
