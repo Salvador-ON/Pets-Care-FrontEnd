@@ -99,8 +99,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
   return (
     <div className="float-right ServicesContainer">
-      <div className="d-flex justify-content-center imageShow">
-        <div className="col-7 mx-2 d-flex justify-content-center">
+      <div className="d-flex justify-content-center imageShow flex-sm-row flex-column">
+        <div className=" order-2 order-sm-1 col-12 mx-2 col-sm-7 mx-sm-2 d-flex justify-content-center">
           <div
             style={{
               backgroundRepeat: "no-repeat",
@@ -112,8 +112,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             }}
           ></div>
         </div>
-        <div className="col-4 mx-2">
-          <h1 className="text-capitalize font-weight-bold text-right">
+        <div className="order-1 order-sm-2 col-12 mx-2 col-sm-4 mx-sm-2">
+          <h1 className="text-capitalize font-weight-bold text-center text-sm-right">
             {serviceOpen.data.name}
           </h1>
           <ul class="list-group">
@@ -129,7 +129,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             </li>
           </ul>
 
-          <div className="mt-5 d-flex justify-content-center">
+          <div className="mt-3 mt-sm-5 d-flex justify-content-center">
             {user.loggedInStatus !== "LOGGED_IN" ? (
               <h6 className="text-center mt-1">
                 Log In or Sign Up to request an appointment
