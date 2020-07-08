@@ -1,5 +1,5 @@
 .SignupContainer {
-  width: 81vw;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -17,6 +17,8 @@
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .btnSubmit {
@@ -37,13 +39,219 @@
 }
 
 .dogImageContainer {
-  margin-top: 17vh;
-  margin-left: 25px;
-  width: 29vw;
+  width: 88vw;
   height: 34vh;
   background: url("../assets/dog_laptop.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border-radius: 30px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .SignupContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .SignupTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .SignupSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageContainer {
+    margin-top: 17vh;
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .SignupContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .SignupTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .SignupSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageContainer {
+    margin-top: 17vh;
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1224px) {
+  .SignupContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .SignupTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .SignupSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageContainer {
+    margin-top: 17vh;
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .SignupContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .SignupTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .SignupSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageContainer {
+    margin-top: 17vh;
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
 }

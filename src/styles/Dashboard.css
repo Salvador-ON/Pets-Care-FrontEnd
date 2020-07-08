@@ -1,5 +1,5 @@
 .DashboardContainer {
-  width: 81vw;
+  width: 100vw;
   height: 100vh;
   overflow-y: scroll;
 }
@@ -39,4 +39,184 @@
 
 .btr:focus {
   outline: 0;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .DashboardContainer {
+    width: 81vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .DashboardTile {
+    margin-top: 2vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .DashboardSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .buttonPagination {
+    background-color: #101e42;
+    color: white;
+    border: 0;
+    padding: 15px 35px;
+  }
+
+  .btl {
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+  }
+
+  .btr {
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+  }
+
+  .btr:focus {
+    outline: 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .DashboardContainer {
+    width: 81vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .DashboardTile {
+    margin-top: 2vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .DashboardSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .buttonPagination {
+    background-color: #101e42;
+    color: white;
+    border: 0;
+    padding: 15px 35px;
+  }
+
+  .btl {
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+  }
+
+  .btr {
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+  }
+
+  .btr:focus {
+    outline: 0;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1224px) {
+  .DashboardContainer {
+    width: 81vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .DashboardTile {
+    margin-top: 2vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .DashboardSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .buttonPagination {
+    background-color: #101e42;
+    color: white;
+    border: 0;
+    padding: 15px 35px;
+  }
+
+  .btl {
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+  }
+
+  .btr {
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+  }
+
+  .btr:focus {
+    outline: 0;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .DashboardContainer {
+    width: 81vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .DashboardTile {
+    margin-top: 2vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .DashboardSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .buttonPagination {
+    background-color: #101e42;
+    color: white;
+    border: 0;
+    padding: 15px 35px;
+  }
+
+  .btl {
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+  }
+
+  .btr {
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+  }
+
+  .btr:focus {
+    outline: 0;
+  }
 }

@@ -6,6 +6,7 @@ import "../../styles/Login.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
+import HidenNav from '../HidenNav';
 
 const Registration = () => {
   let history = useHistory();
@@ -60,6 +61,7 @@ const Registration = () => {
 
   return (
     <div>
+      <div className="d-sm-none"><HidenNav/></div>
       <NavBar option={"login"} />
       <div className="float-right LoginContainer">
         <h1 className="LoginTile text-center">Sign In</h1>
@@ -67,8 +69,9 @@ const Registration = () => {
           Access your account to request and manage your appointments.
         </h3>
 
-        <div className="d-flex mt-5">
-          <form onSubmit={HandleSubmit} className="w-50 mx-2">
+        <div className="d-flex flex-column flex-sm-row">
+          <div className="col-12 col-sm-6">
+          <form onSubmit={HandleSubmit} className="mx-4">
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Email address</label>
               <input
@@ -107,8 +110,12 @@ const Registration = () => {
               {error.value ? <Error error={error.data} /> : null}
             </div>
           </form>
+          </div>
 
-          <div className="dogImageLoginContainer"></div>
+          <div className="col-12 col-sm-6">
+           <div className="dogImageLoginContainer mx-auto mx-sm-0"></div> 
+          </div>
+          
         </div>
       </div>
     </div>

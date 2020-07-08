@@ -5,15 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/UserAppointments.css";
 const UserAppointments = () => {
-  const [appoList, useAppoList] = React.useState([]);
-  const [appointmentPast, useAppointmentPast] = React.useState(false);
+  const [appoList, setAppoList] = React.useState([]);
+  const [appointmentPast, setAppointmentPast] = React.useState(false);
 
   const SetAppointmenstPast = (value) => {
-    useAppointmentPast(value);
+    setAppointmentPast(value);
   };
 
   const SetAppoList = (data) => {
-    useAppoList(data);
+    setAppoList(data);
   };
 
   const getAppointments = () => {
@@ -56,7 +56,7 @@ const UserAppointments = () => {
         </label>
       </div>
 
-      <table className="table table-striped">
+      <table className="table table-striped table-responsive">
         <thead>
           <tr>
             <th scope="col"># ID</th>

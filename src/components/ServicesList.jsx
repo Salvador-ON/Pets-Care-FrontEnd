@@ -36,7 +36,7 @@ const ServicesList = () => {
     <div className="ServiceList mt-2">
       <h4>Services</h4>
 
-      <table className="table table-striped">
+      <table className="table table-striped table-responsive">
         <thead>
           <tr>
             <th scope="col"># ID</th>

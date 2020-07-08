@@ -7,19 +7,21 @@ import AdminButtons from "./AdminButtons.jsx";
 import ServicesList from "./ServicesList.jsx";
 import AppointmentsEmployes from "./AppointmentsEmployes.jsx";
 import UserAppointments from "./UserAppointments.jsx";
+import HidenNav from './HidenNav';
 
 const Dashboard = () => {
 
-  const [selectedButton, useSelectedButton] = React.useState("");
+  const [selectedButton, setSelectedButton] = React.useState("");
 
   
   const ButtonSelected = (value) => {
-    useSelectedButton(value)
+    setSelectedButton(value)
   }
 
   const user = useSelector((state) => state.loggedInStatus);
   return (
     <div>
+      <div className="d-sm-none"><HidenNav/></div>
        <NavBar option={"dashboard"}/>
 
       <div className="float-right DashboardContainer">  
