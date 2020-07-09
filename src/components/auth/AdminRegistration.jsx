@@ -6,13 +6,14 @@ import "../../styles/Registration.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
+import HidenNav from '../HidenNav';
 
 const Registration = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     name: "",
     email: "",
     phone: "",
@@ -21,20 +22,20 @@ const Registration = () => {
     token: "",
   });
 
-  const [error, useError] = React.useState({
+  const [error, setError] = React.useState({
     value: false,
     data: "",
   });
 
   const SetError = (value, data) => {
-    useError({
+    setError({
       value: value,
       data: data,
     });
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
@@ -93,12 +94,14 @@ const Registration = () => {
 
   return (
     <div>
+      <div className="d-lg-none"><HidenNav/></div>
       <NavBar option={"signup"} />
       <div className="float-right SignupContainer">
         <h1 className="SignupTile text-center">Admin Registration</h1>
 
-        <div className="d-flex">
-          <form onSubmit={HandleSubmit} className="w-50 mx-2">
+        <div className="d-flex flex-column flex-sm-row">
+          <div className="col-12 col-sm-6">
+          <form onSubmit={HandleSubmit} className="mx-4">
             <div className="form-group">
               <label htmlFor="token">Admin or Employe Token</label>
               <input
@@ -188,8 +191,12 @@ const Registration = () => {
               {error.value ? <Error error={error.data} /> : null}
             </div>
           </form>
+          </div>
+          
+          <div className="col-12 col-sm-6">
+           <div className="dogImageContainer mx-auto mx-sm-0"></div> 
+          </div>
 
-          <div className="dogImageContainer"></div>
         </div>
       </div>
     </div>

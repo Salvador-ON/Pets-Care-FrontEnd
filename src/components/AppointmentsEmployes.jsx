@@ -2,7 +2,7 @@ import React from "react";
 import axiosCalls from "../services/axiosCalls";
 
 const AppointmentsEmployes = () => {
-  const [serviceList, useServiceList] = React.useState([]);
+  const [serviceList, setServiceList] = React.useState([]);
 
   const dateToday = () => {
     const today = new Date();
@@ -13,10 +13,10 @@ const AppointmentsEmployes = () => {
     return yyyy + "-" + mm + "-" + dd;
   };
 
-  const [dateSearch, useDateSearch] = React.useState(dateToday());
+  const [dateSearch, setDateSearch] = React.useState(dateToday());
 
   const SetServiceList = (data) => {
-    useServiceList(data);
+    setServiceList(data);
   };
 
   const getAppointments = () => {
@@ -28,7 +28,7 @@ const AppointmentsEmployes = () => {
   };
 
   const SetDate = (e) => {
-    useDateSearch(e.target.value);
+    setDateSearch(e.target.value);
   };
 
   React.useEffect(() => {
@@ -50,7 +50,7 @@ const AppointmentsEmployes = () => {
       {serviceList.map((service, index) => (
         <div key={index} className="serviceTable">
           <h4>{service.service}</h4>
-          <table className="table table-striped">
+          <table className="table table-striped table-responsive">
             <thead>
               <tr>
                 <th scope="col"># ID</th>

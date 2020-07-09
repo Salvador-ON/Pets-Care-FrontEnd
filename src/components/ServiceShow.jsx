@@ -28,27 +28,27 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
     setShow(true);
   };
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     pet_name: "",
     date: "",
     time: "",
   });
 
-  const [error, useError] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
   const SetError = (value) => {
-    useError(value);
+    setError(value);
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
   };
 
   const ResetForm = () => {
-    useUserForm({
+    setUserForm({
       pet_name: "",
       date: "",
       time: "",
@@ -99,8 +99,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
   return (
     <div className="float-right ServicesContainer">
-      <div className="d-flex justify-content-center imageShow">
-        <div className="col-7 mx-2 d-flex justify-content-center">
+      <div className="d-flex justify-content-center imageShow flex-lg-row flex-column">
+        <div className=" order-2 order-lg-1 col-12 mx-2 col-lg-7 mx-lg-2 d-flex justify-content-center">
           <div
             style={{
               backgroundRepeat: "no-repeat",
@@ -112,8 +112,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             }}
           ></div>
         </div>
-        <div className="col-4 mx-2">
-          <h1 className="text-capitalize font-weight-bold text-right">
+        <div className="order-1 order-lg-2 col-12 mx-2 col-lg-4 mx-lg-2">
+          <h1 className="text-capitalize font-weight-bold text-center text-lg-right">
             {serviceOpen.data.name}
           </h1>
           <ul class="list-group">
@@ -129,14 +129,14 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             </li>
           </ul>
 
-          <div className="mt-5 d-flex justify-content-center">
+          <div className="mt-3 mt-sm-5 d-flex justify-content-center">
             {user.loggedInStatus !== "LOGGED_IN" ? (
               <h6 className="text-center mt-1">
                 Log In or Sign Up to request an appointment
               </h6>
             ) : (
               <button
-                className="btn btn-success btn-lg rounded-pill"
+                className="btn btn-success btn-lg rounded-pill requestApo"
                 onClick={handleShow}
               >
                 {" "}

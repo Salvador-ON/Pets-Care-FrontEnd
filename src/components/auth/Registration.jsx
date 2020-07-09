@@ -6,13 +6,14 @@ import "../../styles/Registration.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
+import HidenNav from '../HidenNav';
 
 const Registration = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     name: "",
     email: "",
     phone: "",
@@ -20,20 +21,20 @@ const Registration = () => {
     passwordConfirmation: "",
   });
 
-  const [error, useError] = React.useState({
+  const [error, setError] = React.useState({
     value: false,
     data: "",
   });
 
   const SetError = (value, data) => {
-    useError({
+    setError({
       value: value,
       data: data,
     });
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
@@ -82,96 +83,104 @@ const Registration = () => {
 
   return (
     <div>
+      <div className="d-lg-none"><HidenNav/></div>
       <NavBar option={"signup"} />
-      <div className="float-right SignupContainer">
+      <div className="float-none float-lg-right SignupContainer">
         <h1 className="SignupTile text-center">Sign Up</h1>
         <h3 className="SignupSubTile text-center">
           Create your account to request and manage your appointments.
         </h3>
 
-        <div className="d-flex">
-          <form onSubmit={HandleSubmit} className="w-50 mx-2">
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                onChange={HandleForm}
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                value={name}
-                required
-              />
-            </div>
+        <div className="d-flex flex-column flex-sm-row">
+          <div className="col-12 col-sm-6">
+            <form onSubmit={HandleSubmit} className="mx-4">
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  onChange={HandleForm}
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  value={name}
+                  required
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="phone">Phone</label>
-              <input
-                onChange={HandleForm}
-                type="tel"
-                className="form-control"
-                id="phone"
-                name="phone"
-                value={phone}
-                required
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  onChange={HandleForm}
+                  type="tel"
+                  className="form-control"
+                  id="phone"
+                  name="phone"
+                  value={phone}
+                  required
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input
-                onChange={HandleForm}
-                type="email"
-                className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                name="email"
-                value={email}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input
-                onChange={HandleForm}
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                value={password}
-                required
-                minLength="6"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="passwordConfirmation">
-                Password Confirmation
-              </label>
-              <input
-                onChange={HandleForm}
-                type="password"
-                className="form-control"
-                id="passwordConfirmation"
-                name="passwordConfirmation"
-                value={passwordConfirmation}
-                required
-                minLength="6"
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Email address</label>
+                <input
+                  onChange={HandleForm}
+                  type="email"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  name="email"
+                  value={email}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input
+                  onChange={HandleForm}
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={password}
+                  required
+                  minLength="6"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="passwordConfirmation">
+                  Password Confirmation
+                </label>
+                <input
+                  onChange={HandleForm}
+                  type="password"
+                  className="form-control"
+                  id="passwordConfirmation"
+                  name="passwordConfirmation"
+                  value={passwordConfirmation}
+                  required
+                  minLength="6"
+                />
+              </div>
 
-            <div>
-              <button
-              data-testid="SubmitSignButton"
-                type="submit"
-                className="btnSubmit rounded-pill py-1 px-3 mr-3"
-              >
-                Submit
-              </button>
-              {error.value ? <Error error={error.data} /> : null}
-            </div>
-          </form>
+              <div>
+                <button
+                data-testid="SubmitSignButton"
+                  type="submit"
+                  className="btnSubmit rounded-pill py-1 px-3 mr-3"
+                >
+                  Submit
+                </button>
+                {error.value ? <Error error={error.data} /> : null}
+              </div>
+            </form>
+          </div>
+          
+          <div className="col-12 col-sm-6 d-flex justify-content-center">
+           <div className="dogImageContainer mx-auto mx-sm-0"></div> 
+          </div>
 
-          <div className="dogImageContainer"></div>
+
+          
         </div>
       </div>
     </div>

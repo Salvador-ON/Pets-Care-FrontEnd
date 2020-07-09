@@ -30,7 +30,7 @@ const NavBar = ({ option }) => {
   };
 
   return (
-    <nav className="float-left NavContainer">
+    <nav className="d-none d-lg-block float-left  NavContainer">
       <div className="mt-5 mx-2">
         <Link to="/">
           <img className="img-fluid" src={LogoWite} alt="Pets-Care-Logo" />

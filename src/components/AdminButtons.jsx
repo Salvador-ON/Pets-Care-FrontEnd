@@ -6,7 +6,7 @@ const AdminButtons = ({ButtonSelected}) => {
   const user = useSelector((state) => state.loggedInStatus);
   
   return (
-    <div className="d-flex mt-3 justify-content-around">
+    <div className="d-flex mt-3 justify-content-around flex-column flex-sm-row mx-2 mx-sm-0">
       <button data-testid="appoints" type="button" className="btn btn-success btn-lg px-4" onClick={() => {ButtonSelected("aps")}}>Appointments</button>
 
       { user.user.role === "admin" ? 

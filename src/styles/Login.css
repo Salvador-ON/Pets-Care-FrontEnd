@@ -1,5 +1,5 @@
 .LoginContainer {
-  width: 81vw;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -37,12 +37,214 @@
 }
 
 .dogImageLoginContainer {
-  margin-left: 25px;
-  width: 29vw;
+  width: 88vw;
   height: 34vh;
   background: url("../assets/dog_laptop.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   border-radius: 30px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .LoginContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .LoginTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .LoginSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageLoginContainer {
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .LoginContainer {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .LoginTile {
+    margin-top: 20vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .LoginSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageLoginContainer {
+    width: 28vw;
+    height: 17vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1224px) {
+  .LoginContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .LoginTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .LoginSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageLoginContainer {
+    margin-left: 25px;
+    width: 29vw;
+    height: 29vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
+}
+
+@media only screen and (min-width: 1224px) {
+  .LoginContainer {
+    width: 81vw;
+    height: 100vh;
+  }
+
+  .LoginTile {
+    margin-top: 1vh;
+    margin-bottom: 0;
+    color: #101e42 !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+  }
+
+  .LoginSubTile {
+    color: #292e3b !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .btnSubmit {
+    color: white;
+    background-color: #101e42;
+    border: none;
+    outline: none;
+  }
+
+  .btnSubmit:hover {
+    color: white;
+    background-color: #16a30a;
+    border: none;
+  }
+
+  .btnSubmit:focus {
+    outline: 0;
+  }
+
+  .dogImageLoginContainer {
+    margin-left: 25px;
+    width: 29vw;
+    height: 34vh;
+    background: url("../assets/dog_laptop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 30px;
+  }
 }

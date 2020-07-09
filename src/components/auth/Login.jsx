@@ -6,31 +6,32 @@ import "../../styles/Login.css";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../../actions/index.js";
 import { useHistory } from "react-router-dom";
+import HidenNav from '../HidenNav';
 
 const Registration = () => {
   let history = useHistory();
 
   const dispatch = useDispatch();
 
-  const [userForm, useUserForm] = React.useState({
+  const [userForm, setUserForm] = React.useState({
     email: "",
     password: "",
   });
 
-  const [error, useError] = React.useState({
+  const [error, setError] = React.useState({
     value: false,
     data: "",
   });
 
   const SetError = (value, data) => {
-    useError({
+    setError({
       value: value,
       data: data,
     });
   };
 
   const HandleForm = (e) => {
-    useUserForm({
+    setUserForm({
       ...userForm,
       [e.target.name]: e.target.value,
     });
@@ -60,15 +61,17 @@ const Registration = () => {
 
   return (
     <div>
+      <div className="d-lg-none"><HidenNav/></div>
       <NavBar option={"login"} />
-      <div className="float-right LoginContainer">
+      <div className="floar-none float-lg-right LoginContainer">
         <h1 className="LoginTile text-center">Sign In</h1>
         <h3 className="LoginSubTile text-center">
           Access your account to request and manage your appointments.
         </h3>
 
-        <div className="d-flex mt-5">
-          <form onSubmit={HandleSubmit} className="w-50 mx-2">
+        <div className="d-flex flex-column flex-sm-row">
+          <div className="col-12 col-sm-6">
+          <form onSubmit={HandleSubmit} className="mx-4">
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Email address</label>
               <input
@@ -107,8 +110,12 @@ const Registration = () => {
               {error.value ? <Error error={error.data} /> : null}
             </div>
           </form>
+          </div>
 
-          <div className="dogImageLoginContainer"></div>
+          <div className="col-12 col-sm-6 d-flex justify-content-center">
+           <div className="dogImageLoginContainer mx-auto mx-sm-0"></div> 
+          </div>
+          
         </div>
       </div>
     </div>

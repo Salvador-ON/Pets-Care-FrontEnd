@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ServicesList = () => {
-  const [serviceList, useServiceList] = React.useState([]);
+  const [serviceList, setServiceList] = React.useState([]);
 
   const SetServiceList = (data) => {
-    useServiceList(data);
+    setServiceList(data);
   };
 
   const getServices = () => {
@@ -36,7 +36,7 @@ const ServicesList = () => {
     <div className="ServiceList mt-2">
       <h4>Services</h4>
 
-      <table className="table table-striped">
+      <table className="table table-striped table-responsive">
         <thead>
           <tr>
             <th scope="col"># ID</th>
