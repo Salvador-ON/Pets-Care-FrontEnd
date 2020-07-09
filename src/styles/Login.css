@@ -99,12 +99,12 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .LoginContainer {
-    width: 81vw;
+    width: 100vw;
     height: 100vh;
   }
 
   .LoginTile {
-    margin-top: 1vh;
+    margin-top: 20vh;
     margin-bottom: 0;
     color: #101e42 !important;
     font-family: 'Roboto', sans-serif;
@@ -137,9 +137,8 @@
   }
 
   .dogImageLoginContainer {
-    margin-left: 25px;
-    width: 29vw;
-    height: 34vh;
+    width: 28vw;
+    height: 17vh;
     background: url("../assets/dog_laptop.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -190,7 +189,7 @@
   .dogImageLoginContainer {
     margin-left: 25px;
     width: 29vw;
-    height: 34vh;
+    height: 29vh;
     background: url("../assets/dog_laptop.jpg");
     background-repeat: no-repeat;
     background-position: center;

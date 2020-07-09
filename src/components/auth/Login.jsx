@@ -61,9 +61,9 @@ const Registration = () => {
 
   return (
     <div>
-      <div className="d-sm-none"><HidenNav/></div>
+      <div className="d-lg-none"><HidenNav/></div>
       <NavBar option={"login"} />
-      <div className="float-right LoginContainer">
+      <div className="floar-none float-lg-right LoginContainer">
         <h1 className="LoginTile text-center">Sign In</h1>
         <h3 className="LoginSubTile text-center">
           Access your account to request and manage your appointments.
@@ -112,7 +112,7 @@ const Registration = () => {
           </form>
           </div>
 
-          <div className="col-12 col-sm-6">
+          <div className="col-12 col-sm-6 d-flex justify-content-center">
            <div className="dogImageLoginContainer mx-auto mx-sm-0"></div> 
           </div>
           

@@ -88,7 +88,7 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .DashboardContainer {
-    width: 81vw;
+    width: 100vw;
     height: 100vh;
     overflow-y: scroll;
   }
@@ -128,6 +128,10 @@
 
   .btr:focus {
     outline: 0;
+  }
+
+  .ServiceList {
+    margin: 0 2vw;
   }
 }
 

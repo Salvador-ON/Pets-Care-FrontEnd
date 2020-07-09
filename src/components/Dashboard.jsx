@@ -21,10 +21,10 @@ const Dashboard = () => {
   const user = useSelector((state) => state.loggedInStatus);
   return (
     <div>
-      <div className="d-sm-none"><HidenNav/></div>
+      <div className="d-lg-none"><HidenNav/></div>
        <NavBar option={"dashboard"}/>
 
-      <div className="float-right DashboardContainer">  
+      <div className="float-none float-lg-right DashboardContainer">  
       <h1 className="DashboardTile text-center">Dashboard</h1>
       {user.loggedInStatus === "NOT_LOGGED_IN" ? (
           <h3  className="DashboardSubTile text-center">You are not Logged In </h3>

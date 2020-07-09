@@ -71,16 +71,16 @@ const Services = () => {
 
   return (
     <div>
-      <div className="d-sm-none"><HidenNav/></div>
+      <div className="d-lg-none"><HidenNav/></div>
       
       <NavBar option={"services"} />
       {!serviceOpen.status ? (
-        <div className="float-none float-sm-right ServicesContainer">
+        <div className="float-none float-lg-right ServicesContainer">
           <h1 className="ServiceTile text-center">Our Services</h1>
           <h3 className="ServiceSubTile text-center">
             Check the differents services tha we offer.
           </h3>
-          <div className="ServicesDisplay mt-3 d-flex flex-md-row flex-column justify-content-center justify-content-sm-between mx-sm-0 mx-auto">
+          <div className="ServicesDisplay mt-3 d-flex flex-md-row flex-column justify-content-center justify-content-sm-between mx-lg-0 mx-auto">
             {serviceList.length > 0
               ? serviceList[pagination].map((service) => (
                   <div

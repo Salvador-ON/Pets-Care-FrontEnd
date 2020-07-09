@@ -161,12 +161,12 @@
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .ServicesContainer {
-    width: 81vw;
+    width: 100vw;
     height: 100vh;
   }
 
   .ServiceTile {
-    margin-top: 2vh;
+    margin-top: 20vh;
     margin-bottom: 0;
     color: #101e42 !important;
     font-family: "Roboto", sans-serif;
@@ -208,9 +208,9 @@
 
   .paginationButCont {
     position: absolute;
-    width: 83vw;
+    width: 100vw;
     right: 0;
-    bottom: 10vh;
+    bottom: 20vh;
     margin: 0;
   }
 
@@ -229,8 +229,8 @@
   }
 
   .ServicesDisplay {
-    width: 81vw;
-    margin-left: -2vw;
+    width: 90vw;
+    margin: 0 auto;
   }
 
   .serviceShowCont {
@@ -240,6 +240,10 @@
   .imageContService {
     height: 26vw;
     width: 26vw;
+  }
+
+  .requestApo {
+    margin-bottom: 10px;
   }
 }
 

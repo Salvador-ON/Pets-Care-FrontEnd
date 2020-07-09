@@ -99,8 +99,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
 
   return (
     <div className="float-right ServicesContainer">
-      <div className="d-flex justify-content-center imageShow flex-sm-row flex-column">
-        <div className=" order-2 order-sm-1 col-12 mx-2 col-sm-7 mx-sm-2 d-flex justify-content-center">
+      <div className="d-flex justify-content-center imageShow flex-lg-row flex-column">
+        <div className=" order-2 order-lg-1 col-12 mx-2 col-lg-7 mx-lg-2 d-flex justify-content-center">
           <div
             style={{
               backgroundRepeat: "no-repeat",
@@ -112,8 +112,8 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
             }}
           ></div>
         </div>
-        <div className="order-1 order-sm-2 col-12 mx-2 col-sm-4 mx-sm-2">
-          <h1 className="text-capitalize font-weight-bold text-center text-sm-right">
+        <div className="order-1 order-lg-2 col-12 mx-2 col-lg-4 mx-lg-2">
+          <h1 className="text-capitalize font-weight-bold text-center text-lg-right">
             {serviceOpen.data.name}
           </h1>
           <ul class="list-group">
@@ -136,7 +136,7 @@ const ServiceShow = ({ serviceOpen, ResetSetService, user }) => {
               </h6>
             ) : (
               <button
-                className="btn btn-success btn-lg rounded-pill"
+                className="btn btn-success btn-lg rounded-pill requestApo"
                 onClick={handleShow}
               >
                 {" "}

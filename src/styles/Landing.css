@@ -93,7 +93,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: white;
+    background: #b8c8cf;
   }
 
   /* Color/shape of burger icon bars on hover */
@@ -178,7 +178,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: white;
+    background: #b8c8cf;
   }
 
   /* Color/shape of burger icon bars on hover */

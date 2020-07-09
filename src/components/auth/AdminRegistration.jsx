@@ -94,7 +94,7 @@ const Registration = () => {
 
   return (
     <div>
-      <div className="d-sm-none"><HidenNav/></div>
+      <div className="d-lg-none"><HidenNav/></div>
       <NavBar option={"signup"} />
       <div className="float-right SignupContainer">
         <h1 className="SignupTile text-center">Admin Registration</h1>
