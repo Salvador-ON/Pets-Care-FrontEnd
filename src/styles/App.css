@@ -1,0 +1,147 @@
+.LandingWrap {
+  width: 100vw;
+  height: 100vh;
+  background: #101e42;
+}
+
+.LogoImage {
+  background: url("../assets/logosmall.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 100vw;
+  height: 40vw;
+  margin: 2vh auto;
+}
+
+.DogVetImage {
+  background: url("../assets/vet_dog.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 70vw;
+  height: 70vw;
+  margin: 0 auto;
+}
+
+.LandingTitle {
+  font-family: 'Pacifico', cursive;
+
+  /* font-family: 'Varela Round', sans-serif; */
+  font-size: 3rem;
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape) {
+  .LandingWrap {
+    height: 100vh;
+  }
+
+  .LogoImage {
+    background: url("../assets/logosmall.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 40vw;
+    height: 10vw;
+    margin: 0 auto;
+    margin-top: 5vh;
+  }
+
+  .DogVetImage {
+    background: url("../assets/vet_dog.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 38vw;
+    height: 36vw;
+    margin: 0 auto;
+  }
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait) {
+  .LandingWrap {
+    height: 100vh;
+  }
+
+  .LogoImage {
+    background: url("../assets/logosmall.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 70vw;
+    height: 30vw;
+    margin: 5vh auto;
+  }
+
+  .DogVetImage {
+    background: url("../assets/vet_dog.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 38vw;
+    height: 36vw;
+    margin: 0 auto;
+  }
+
+  .LandingTitle {
+    margin-top: 10vh;
+  }
+}
+
+@media only screen
+  and (min-device-width: 1025px)
+  and (max-device-width: 1224px) {
+  .LogoImage {
+    background: url("../assets/logosmall.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 40vw;
+    height: 10vw;
+    margin: 0 auto;
+    margin-top: 5vh;
+  }
+
+  .DogVetImage {
+    background: url("../assets/vet_dog.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25vw;
+    height: 23vw;
+    margin: 5vh auto;
+  }
+}
+
+@media only screen
+  and (min-width: 1224px) {
+  .LandingWrap {
+    height: 100vh;
+  }
+
+  .LogoImage {
+    background: url("../assets/logosmall.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 40vw;
+    height: 10vw;
+    margin: 0 auto;
+  }
+
+  .DogVetImage {
+    background: url("../assets/vet_dog.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25vw;
+    height: 23vw;
+    margin: 2vh auto;
+  }
+}
