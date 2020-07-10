@@ -1,15 +1,15 @@
 # Pets-Care-FrontEnd
 
-- This web App was create for tablets resolution 1024 x 768 px,
+- This Web App was created for tablets resolution 1024 x 768 px,
 - This Web App was built with React and Redux. 
 - This is the Front End App of the Vet Care Medical Center.
 - All the users can create new appointments in the differents services for their pets.
-- The Admin users can create and delete services.
-- The Admin and Employe users can check the appointmets of each service.
-- In the future Admins and Employes will have a disccount for their pets' appointments.
+- Admin users can create and delete services.
+- The Admin and Employee users can check the appointments of each service.
+- In the future Admins and Employes will have a discount for their pets' appointments.
 - The Admin Sign Up route is hidden for only Admins and Employes users "/adminsignup".
-- Each type of user have a different Dashboards.
-- The Front End Comunicate to the Back End Server.
+- Each type of user has a different Dashboards.
+- The Front End Communicate to the Back End Server.
 
 ## Future Improvements
 - Responsive Resolutions.
@@ -74,7 +74,7 @@ Also you can download the project from this [link](https://github.com/Salvador-O
 
 Before running the app you also need to download the Ruby on Rails [Back End application](https://github.com/Salvador-ON/Pets-Care-BackEnd-Api).
 
-Also you need to change the domain of all the urls to http://localhost:3000
+Also, you need to change the domain of all the URLs to http://localhost:3000
 
 To start the app. You need to have installed node.js and npm. [Check here](https://www.npmjs.com/get-npm)
 

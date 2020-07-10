@@ -249,7 +249,7 @@
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1224px) {
   .ServicesContainer {
-    width: 81vw;
+    width: 80vw;
     height: 100vh;
   }
 
@@ -333,7 +333,7 @@
 
 @media only screen and (min-width: 1224px) {
   .ServicesContainer {
-    width: 82vw;
+    width: 80vw;
     height: 100vh;
   }
 
@@ -400,16 +400,16 @@
   }
 
   .ServicesDisplay {
-    width: 81vw;
+    width: 80vw;
     margin-left: 0;
   }
 
   .serviceShowCont {
-    width: 26vw;
+    width: 25vw;
   }
 
   .imageContService {
-    height: 26vw;
-    width: 26vw;
+    height: 25vw;
+    width: 25vw;
   }
 }
