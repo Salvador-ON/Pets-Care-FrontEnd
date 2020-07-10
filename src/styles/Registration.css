@@ -45,7 +45,6 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border-radius: 30px;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -96,7 +95,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border-radius: 30px;
   }
 }
 
@@ -147,7 +145,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border-radius: 30px;
   }
 }
 
@@ -199,7 +196,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border-radius: 30px;
   }
 }
 
@@ -251,6 +247,5 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border-radius: 30px;
   }
 }
