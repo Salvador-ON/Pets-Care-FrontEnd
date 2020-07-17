@@ -55,8 +55,8 @@ const UserAppointments = () => {
           <span className="slider round"></span>
         </label>
       </div>
-
-      <table className="table table-striped table-responsive">
+      <div className="table-responsive">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col"># ID</th>
@@ -90,6 +90,8 @@ const UserAppointments = () => {
           )}
         </tbody>
       </table>
+      </div>
+      
     </div>
   );
 };

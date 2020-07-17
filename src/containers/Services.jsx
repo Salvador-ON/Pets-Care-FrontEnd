@@ -60,9 +60,7 @@ const Services = () => {
 
   const getServices = () => {
     axiosCalls.showServices()
-      .then((response) => {
-        console.log(Math.ceil((response.data.services.length - 1) / 3));
-        
+      .then((response) => {       
         SetServiceList(utilities.chunkArray(response.data.services, 3));
         SetPages(Math.ceil((response.data.services.length) / 3));
       })

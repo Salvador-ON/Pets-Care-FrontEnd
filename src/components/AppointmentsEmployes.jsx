@@ -50,7 +50,8 @@ const AppointmentsEmployes = () => {
       {serviceList.map((service, index) => (
         <div key={index} className="serviceTable">
           <h4>{service.service}</h4>
-          <table className="table table-striped table-responsive">
+          <div className="table-responsive">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col"># ID</th>
@@ -72,6 +73,8 @@ const AppointmentsEmployes = () => {
               ))}
             </tbody>
           </table>
+          </div>
+          
         </div>
       ))}
     </div>

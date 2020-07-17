@@ -35,8 +35,8 @@ const ServicesList = () => {
   return (
     <div className="ServiceList mt-2">
       <h4>Services</h4>
-
-      <table className="table table-striped table-responsive">
+      <div className="table-responsive">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col"># ID</th>
@@ -64,6 +64,8 @@ const ServicesList = () => {
           ))}
         </tbody>
       </table>
+      </div>
+      
     </div>
   );
 };
